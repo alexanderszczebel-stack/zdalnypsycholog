@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { ConditionalNavbar, ConditionalFooter } from "@/components/layout/ConditionalNav";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -67,9 +68,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="antialiased">
-        <Navbar />
+        <ConditionalNavbar><Navbar /></ConditionalNavbar>
         <main className="pb-[80px] md:pb-0">{children}</main>
-        <Footer />
+        <ConditionalFooter><Footer /></ConditionalFooter>
       </body>
     </html>
   );
