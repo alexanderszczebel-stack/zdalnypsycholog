@@ -86,12 +86,6 @@ export default function QuizPage() {
           </div>
         )}
 
-        <Link
-          href="/"
-          className="text-sm text-[#9A8E85] hover:text-[#6F6860] transition-colors"
-        >
-          Wróć
-        </Link>
       </header>
 
       {/* Quiz body */}
