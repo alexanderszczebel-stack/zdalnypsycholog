@@ -35,6 +35,8 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
+  if (pathname === "/quiz") return null;
+
   return (
     <>
       <header
