@@ -9,8 +9,6 @@ const navLinks = [
   { href: "/o-mnie", label: "O mnie" },
   { href: "/jak-to-dziala", label: "Jak to działa" },
   { href: "/obszary-pomocy", label: "Obszary pomocy" },
-  { href: "/blog", label: "Blog" },
-  { href: "/faq", label: "FAQ" },
 ];
 
 export default function Navbar() {

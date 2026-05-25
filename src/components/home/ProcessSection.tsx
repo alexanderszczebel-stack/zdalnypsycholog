@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const steps = [
@@ -37,54 +36,7 @@ export default function ProcessSection() {
           </h2>
         </AnimatedSection>
 
-        {/* Desktop: horizontal timeline */}
-        <div className="hidden md:block">
-          <div className="relative">
-            {/* Connecting line */}
-            <div
-              className="absolute top-[38px] left-[16%] right-[16%] h-px"
-              style={{ background: "linear-gradient(90deg, #E8D8C4 0%, #BC6C25 50%, #E8D8C4 100%)" }}
-            />
-
-            <div className="grid grid-cols-3 gap-10">
-              {steps.map((step, i) => (
-                <AnimatedSection key={step.n} delay={i * 0.15}>
-                  <div className="text-center">
-                    {/* Circle */}
-                    <motion.div
-                      className="w-[76px] h-[76px] rounded-full mx-auto mb-7 flex flex-col items-center justify-center relative z-10"
-                      style={{
-                        background: i === 1 ? "#BC6C25" : "#1F314D",
-                        boxShadow: i === 1
-                          ? "0 6px 24px rgba(188,108,37,0.28)"
-                          : "0 6px 24px rgba(31,49,77,0.20)",
-                      }}
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.25 }}
-                    >
-                      <span className="font-display font-semibold text-white text-lg leading-none">
-                        {step.n}
-                      </span>
-                    </motion.div>
-
-                    <h3
-                      className="font-display font-semibold text-[#2D2926] mb-3"
-                      style={{ fontSize: "1.125rem", lineHeight: 1.3 }}
-                    >
-                      {step.title}
-                    </h3>
-                    <p className="text-[#6F6860] text-sm leading-relaxed max-w-[200px] mx-auto">
-                      {step.desc}
-                    </p>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile: stacked cards */}
-        <div className="md:hidden flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           {steps.map((step, i) => (
             <AnimatedSection key={step.n} delay={i * 0.1}>
               <div

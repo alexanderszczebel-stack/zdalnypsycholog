@@ -5,6 +5,10 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const faqs = [
   {
+    q: "Ile kosztuje sesja z psychologiem online?",
+    a: "Konsultacja jednorazowa kosztuje 150 zł za 50 minut. Nie ma umów ani zobowiązań — możesz skorzystać jednorazowo lub kontynuować w swoim tempie. Płatność kartą lub przelewem, przed sesją.",
+  },
+  {
     q: "Czy terapia online jest skuteczna?",
     a: "Tak. Liczne badania kliniczne potwierdzają, że terapia online jest równie skuteczna jak tradycyjna. Kluczem jest relacja z terapeutą i regularność — nie miejsce spotkania.",
   },
@@ -31,7 +35,7 @@ const faqs = [
 ];
 
 export default function FAQSection() {
-  const [open, setOpen] = useState<number | null>(null);
+  const [open, setOpen] = useState<number | null>(0);
 
   return (
     <section className="section-padding bg-[#F6EFE6]">

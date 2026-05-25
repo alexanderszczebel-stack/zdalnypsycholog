@@ -58,7 +58,24 @@ export default function SpecialistsSection() {
                   >
                     Mikołaj Szczebel
                   </p>
-                  <p className="text-[#9A8E85] text-sm mb-4">Psycholog online</p>
+                  <p className="text-[#9A8E85] text-sm">Psycholog online</p>
+
+                  <div className="flex gap-6 mb-4 mt-3">
+                    <div>
+                      <p className="font-semibold text-[#1F314D] text-lg">8 lat</p>
+                      <p className="text-xs text-[#9A8E85]">doświadczenia</p>
+                    </div>
+                    <div className="w-px" style={{background: 'rgba(45,41,38,0.12)'}}></div>
+                    <div>
+                      <p className="font-semibold text-[#1F314D] text-lg">1500+</p>
+                      <p className="text-xs text-[#9A8E85]">sesji</p>
+                    </div>
+                    <div className="w-px" style={{background: 'rgba(45,41,38,0.12)'}}></div>
+                    <div>
+                      <p className="font-semibold text-[#1F314D] text-lg">4.9 / 5</p>
+                      <p className="text-xs text-[#9A8E85]">Google Reviews</p>
+                    </div>
+                  </div>
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-5">
@@ -74,6 +91,27 @@ export default function SpecialistsSection() {
                         {tag}
                       </span>
                     ))}
+                  </div>
+
+                  <p className="text-sm text-[#6F6860] mt-3">
+                    Konsultacja:{' '}
+                    <strong className="text-[#2D2926] font-semibold">150 zł / 50 min</strong>
+                    {' '}· bez zobowiązań
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {['Lęk i napięcie', 'Stres', 'Relacje', 'Wypalenie'].map(area => (
+                      <span key={area}
+                        className="px-3 py-1 rounded-full text-xs text-[#6F6860]"
+                        style={{background: 'rgba(232,216,196,0.4)', border: '1px solid rgba(45,41,38,0.08)'}}>
+                        {area}
+                      </span>
+                    ))}
+                    <a href="/obszary-pomocy"
+                      className="px-3 py-1 rounded-full text-xs font-medium text-[#BC6C25]"
+                      style={{background: 'rgba(188,108,37,0.08)', border: '1px solid rgba(188,108,37,0.2)'}}>
+                      Wszystkie obszary →
+                    </a>
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
