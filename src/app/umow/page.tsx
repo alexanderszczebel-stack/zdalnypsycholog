@@ -115,14 +115,14 @@ export default function UmowPage() {
               50 min · 150 zł · bez zobowiązań · pełna poufność
             </p>
 
-            <div className="flex flex-col gap-2.5 mt-6">
+            <div className="flex flex-col gap-4 mt-6">
               {[
                 "Dostępność w 24–48h",
                 "Konsultacje online w całej Polsce",
                 "Poufność i tajemnica zawodowa",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-2.5 text-[#6F6860] text-sm">
-                  <span className="text-[#BC6C25] font-bold text-base">✓</span>
+                <div key={item} className="flex items-center gap-2.5 text-[#6F6860] text-base">
+                  <span className="text-[#BC6C25] font-bold text-xl">✓</span>
                   {item}
                 </div>
               ))}
