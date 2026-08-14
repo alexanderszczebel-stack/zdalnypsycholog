@@ -1,24 +1,24 @@
 "use client";
-import Link from "next/link";
+import BookingCTA from "@/components/booking/BookingCTA";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const cards = [
   {
     title: "Czuję napięcie lub lęk",
-    desc: "Coś sprawia, że trudno oddychać spokojnie. Nie musisz rozumieć dlaczego — wystarczy, że to czujesz.",
+    desc: "Jeśli napięcie utrzymuje się i wpływa na codzienne funkcjonowanie, warto je uporządkować w konsultacji.",
     color: "#1F314D",
     bg: "rgba(31,49,77,0.06)",
   },
   {
     title: "Mam trudność w relacjach",
-    desc: "Z kimś bliskim, z innymi, albo z samym sobą. Możesz o tym spokojnie porozmawiać.",
+    desc: "Pracujemy nad rozumieniem schematów w relacjach i sposobów reagowania.",
     color: "#BC6C25",
     bg: "rgba(188,108,37,0.06)",
   },
   {
     title: "Nie wiem, co się ze mną dzieje",
-    desc: "Brak nazwy na to, co czujesz — to też jest punkt wyjścia. Pomożemy znaleźć kierunek.",
+    desc: "Pierwsza konsultacja pozwala nazwać problem i określić, jaki dalszy kierunek ma sens.",
     color: "#2D2926",
     bg: "rgba(45,41,38,0.04)",
   },
@@ -29,16 +29,16 @@ export default function ProblemCards() {
     <section className="section-padding bg-[#F6EFE6]">
       <div className="container-main">
         <AnimatedSection className="max-w-2xl mx-auto text-center mb-14">
-          <p className="section-label mb-4">Nie musisz wiedzieć, od czego zacząć</p>
+          <p className="section-label mb-4">Pierwsze rozpoznanie</p>
           <h2
             className="font-display font-semibold text-[#2D2926] mb-5"
             style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", lineHeight: 1.2, letterSpacing: "-0.02em" }}
           >
-            Nie musisz wiedzieć, czego dokładnie potrzebujesz.
+            Nie każdy problem od razu ma jasną nazwę.
           </h2>
           <p className="text-[#6F6860]" style={{ fontSize: "1.0625rem", lineHeight: 1.75 }}>
-            Wystarczy, że czujesz, że coś jest trudne. Pomożemy Ci spokojnie znaleźć właściwy
-            kierunek i osobę, z którą możesz porozmawiać.
+            Konsultacja pomaga oddzielić objawy od mechanizmów i ustalić, czy dalsza praca
+            psychologiczna będzie właściwa.
           </p>
         </AnimatedSection>
 
@@ -84,9 +84,7 @@ export default function ProblemCards() {
         </div>
 
         <AnimatedSection className="text-center">
-          <Link href="/quiz" className="btn-primary">
-            Wypełnij krótki quiz
-          </Link>
+          <BookingCTA text="Wybierz termin konsultacji" className="btn-primary" />
         </AnimatedSection>
       </div>
     </section>

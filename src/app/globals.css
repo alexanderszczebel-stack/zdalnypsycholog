@@ -88,6 +88,7 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   body {
@@ -96,6 +97,7 @@
     background-color: var(--color-bg-primary);
     font-size: var(--text-body-md);
     line-height: var(--text-body-md--line-height);
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -110,6 +112,11 @@
 
   * {
     box-sizing: border-box;
+  }
+
+  body:has([data-standalone-landing="polacy-za-granica"]) .site-navbar,
+  body:has([data-standalone-landing="polacy-za-granica"]) .site-mobile-sticky {
+    display: none !important;
   }
 }
 
@@ -155,7 +162,10 @@
   transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   cursor: pointer;
   text-decoration: none;
-  white-space: nowrap;
+  max-width: 100%;
+  min-width: 0;
+  text-align: center;
+  white-space: normal;
   border: none;
 
   &:hover {
@@ -186,7 +196,10 @@
   transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   cursor: pointer;
   text-decoration: none;
-  white-space: nowrap;
+  max-width: 100%;
+  min-width: 0;
+  text-align: center;
+  white-space: normal;
 
   &:hover {
     background-color: var(--color-navy);

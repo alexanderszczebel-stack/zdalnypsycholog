@@ -5,32 +5,32 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const faqs = [
   {
-    q: "Ile kosztuje sesja z psychologiem online?",
-    a: "Konsultacja jednorazowa kosztuje 150 zł za 50 minut. Nie ma umów ani zobowiązań — możesz skorzystać jednorazowo lub kontynuować w swoim tempie. Płatność kartą lub przelewem, przed sesją.",
+    q: "Ile kosztuje konsultacja?",
+    a: "Aktualne ceny znajdują się w zakładce Cennik. Na stronie głównej skupiamy się przede wszystkim na tym, czy konsultacja online jest właściwą formą wsparcia w Twojej sytuacji.",
   },
   {
     q: "Czy terapia online jest skuteczna?",
-    a: "Tak. Liczne badania kliniczne potwierdzają, że terapia online jest równie skuteczna jak tradycyjna. Kluczem jest relacja z terapeutą i regularność — nie miejsce spotkania.",
+    a: "Konsultacja online może pomóc uporządkować sytuację i ustalić dalszy kierunek pracy. W wielu przypadkach praca online jest pomocna, o ile masz warunki do spokojnej i poufnej rozmowy.",
   },
   {
-    q: "Jak wybrać psychologa?",
-    a: "Możesz skorzystać z naszego krótkiego quizu, który pomoże dopasować specjalistę do Twojej sytuacji. Możesz też samodzielnie przeglądać profile specjalistów i wybrać kogoś, kto budzi Twoje zaufanie.",
+    q: "Co jeśli nie wiem, o czym mówić?",
+    a: "Nie musisz się przygotowywać. Zaczynamy od tego, co jest dla Ciebie teraz najtrudniejsze. Rozmowa toczy się naturalnie.",
   },
   {
-    q: "Czy rozmowy są poufne?",
-    a: "Absolutnie. Każdy specjalista jest związany tajemnicą zawodową. Twoje rozmowy są szyfrowane i nie są udostępniane osobom trzecim. Jesteś bezpieczny.",
+    q: "Czy jedna konsultacja ma sens?",
+    a: "Tak. Już jedno spotkanie może pomóc uporządkować sytuację i zobaczyć ją z innej perspektywy. Po konsultacji wspólnie decydujemy o dalszych krokach.",
   },
   {
-    q: "Co jeśli nie wiem, z czym dokładnie przychodzę?",
-    a: "To jest w porządku — i bardzo częste. Nie musisz wiedzieć, czego dokładnie potrzebujesz. Wystarczy, że czujesz, że coś jest trudne. Specjalista pomoże Ci to nazwać.",
+    q: "Czy muszę mieć konkretny problem lub diagnozę?",
+    a: "Nie. Wystarczy, że czujesz, że coś jest trudne. Nie potrzebujesz diagnozy ani gotowego opisu problemu.",
   },
   {
-    q: "Czy mogę zmienić specjalistę?",
-    a: "Tak, w każdej chwili. Dopasowanie między klientem a specjalistą jest ważne i nie każda para od razu pasuje. Zmiana specjalisty jest czymś normalnym i wspieramy Cię w tym procesie.",
+    q: "Jak szybko mogę umówić wizytę?",
+    a: "Wybierasz dostępny termin online. Liczba miejsc w tygodniu jest ograniczona, a termin zostaje potwierdzony po dokonaniu płatności.",
   },
   {
-    q: "Jak wygląda pierwsza konsultacja?",
-    a: "Pierwsza sesja to przede wszystkim rozmowa — bez presji, bez oceniania. Specjalista chce Cię poznać i zrozumieć Twoją sytuację. To nie jest egzamin. Możesz mówić tyle, ile chcesz.",
+    q: "Czy konsultacja jest poufna?",
+    a: "Tak. Obowiązuje pełna tajemnica zawodowa psychologa. Wszystko, co powiesz, pozostaje między nami.",
   },
 ];
 
@@ -55,7 +55,7 @@ export default function FAQSection() {
               style={{ fontSize: "1.0625rem", lineHeight: 1.75 }}
             >
               Zebraliśmy odpowiedzi na pytania, które słyszymy najczęściej.
-              Jeśli czegoś tu nie ma — napisz do nas.
+              Jeśli czegoś tu nie ma, napisz do nas.
             </p>
           </AnimatedSection>
 

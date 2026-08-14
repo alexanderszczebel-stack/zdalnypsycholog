@@ -14,8 +14,8 @@ const trustBlocks = [
     ),
   },
   {
-    title: "Sprawdzeni specjaliści",
-    desc: "Każdy specjalista przechodzi weryfikację wykształcenia i uprawnień przed dołączeniem do platformy.",
+    title: "Jasne ramy pracy",
+    desc: "Konsultacje prowadzone są indywidualnie, przez Mikołaja Szczebla, w ustalonej strukturze spotkania.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
         <circle cx="11" cy="11" r="8" stroke="#1F314D" strokeWidth="1.6" />
@@ -24,8 +24,8 @@ const trustBlocks = [
     ),
   },
   {
-    title: "Bezpieczne płatności i terminy",
-    desc: "Płatności szyfrowane, terminy elastyczne. Możesz odwołać lub przełożyć sesję bez stresu.",
+    title: "Ustalony termin",
+    desc: "Termin konsultacji wybierasz online, a potwierdzenie otrzymujesz po dokonaniu płatności.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
         <rect x="2" y="6" width="18" height="12" rx="3" stroke="#1F314D" strokeWidth="1.6" />
@@ -61,8 +61,8 @@ export default function WhyOnlineSection() {
             className="text-[#6F6860]"
             style={{ fontSize: "1.0625rem", lineHeight: 1.75 }}
           >
-            Rozmawiasz z certyfikowanym specjalistą, w szyfrowanym środowisku, bez śladów
-            w historii wizyt. Tylko Ty i Twój psycholog.
+            Rozmawiasz z psychologiem online w jasnych, poufnych ramach. Po rezerwacji
+            otrzymujesz informacje organizacyjne dotyczące spotkania.
           </p>
         </AnimatedSection>
 

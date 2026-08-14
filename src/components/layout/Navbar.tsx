@@ -4,27 +4,18 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
+import BookingCTA from "@/components/booking/BookingCTA";
 
 const navLinks = [
   { href: "/o-mnie", label: "O mnie" },
   { href: "/jak-to-dziala", label: "Jak to działa" },
   { href: "/obszary-pomocy", label: "Obszary pomocy" },
+  { href: "/cennik", label: "Cennik" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 16);
-    window.addEventListener("scroll", handler, { passive: true });
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     if (open) {
@@ -35,23 +26,20 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  if (pathname === "/quiz") return null;
+  if (pathname === "/umow" || pathname === "/polacy-za-granica") return null;
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
-          scrolled
-            ? "bg-[#FDFBF7]/94 backdrop-blur-md"
-            : "bg-transparent"
-        }`}
+        className="site-navbar fixed top-0 left-0 right-0 z-50 w-full"
         style={{
-          boxShadow: scrolled ? "var(--shadow-nav)" : "none",
+          background: '#F6EFE6',
+          borderBottom: '1px solid rgba(45,41,38,0.08)',
         }}
       >
         <div className="container-main flex items-center justify-between h-[68px] md:h-[76px]">
           {/* Logo */}
-          <Link href="/" aria-label="zdalnypsycholog — strona główna">
+          <Link href="/" aria-label="zdalnypsycholog, strona główna">
             <Logo size="md" />
           </Link>
 
@@ -74,9 +62,11 @@ export default function Navbar() {
 
           {/* Desktop actions */}
           <div className="hidden md:flex items-center gap-3">
-            <Link href="/quiz" className="btn-primary text-sm px-5 py-2.5">
-              Zrób pierwszy krok
-            </Link>
+            <BookingCTA
+              text="Wybierz termin konsultacji"
+              className="btn-primary text-sm px-5 py-2.5"
+              iconSize={15}
+            />
           </div>
 
           {/* Mobile hamburger */}
@@ -112,14 +102,26 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 ))}
-                <Link
-                  href="/logowanie"
-                  onClick={() => setOpen(false)}
-                  className="flex items-center px-4 py-3.5 rounded-2xl text-base font-medium text-[#6F6860] hover:bg-[#F6EFE6] transition-colors mt-2 border-t border-[rgba(45,41,38,0.08)] pt-5"
-                >
-                  Zaloguj się
-                </Link>
               </nav>
+              <div
+                className="mt-6 rounded-2xl p-4"
+                style={{
+                  background: "rgba(31,49,77,0.04)",
+                  border: "1px solid rgba(45,41,38,0.08)",
+                }}
+              >
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#BC6C25] mb-2">
+                  Kontakt
+                </p>
+                <p className="text-lg font-semibold text-[#1F314D]">Rezerwacja online</p>
+                <p className="text-sm text-[#6F6860] mt-1">
+                  Konsultacje odbywają się po wyborze terminu online i dokonaniu płatności.
+                  Telefon pozostaje dostępny w sprawach organizacyjnych.
+                </p>
+                <div className="flex flex-col gap-2 mt-4">
+                  <BookingCTA text="Wybierz termin konsultacji" className="btn-primary w-full" />
+                </div>
+              </div>
             </div>
           </div>
         )}
@@ -127,12 +129,13 @@ export default function Navbar() {
 
       {/* Mobile sticky bottom CTA */}
       <div
-        className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#FDFBF7]/96 backdrop-blur-md border-t border-[rgba(45,41,38,0.08)]"
+        className="site-mobile-sticky md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#FDFBF7]/96 backdrop-blur-md border-t border-[rgba(45,41,38,0.08)]"
         style={{ padding: "12px 16px", paddingBottom: "max(12px, env(safe-area-inset-bottom))" }}
       >
-        <Link href="/quiz" className="btn-primary w-full justify-center">
-          Zrób pierwszy krok
-        </Link>
+        <BookingCTA
+          text="Wybierz termin konsultacji"
+          className="btn-primary w-full justify-center"
+        />
       </div>
     </>
   );

@@ -1,13 +1,12 @@
 "use client";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import BookingCTA from "@/components/booking/BookingCTA";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const steps = [
   {
     n: "1",
     q: "Co jest teraz dla Ciebie najtrudniejsze?",
-    hint: "Wybierz to, co rezonuje — nie musisz być precyzyjny.",
+    hint: "Wybierz to, co rezonuje, nie musisz być precyzyjny.",
     options: ["Lęk i napięcie", "Stres", "Relacje"],
     active: 0,
   },
@@ -21,7 +20,7 @@ const steps = [
   {
     n: "3",
     q: "Dopasujemy termin i formę wsparcia.",
-    hint: "Bez zobowiązań — spokojnie przeglądasz.",
+    hint: "Termin ustalany jest bezpośrednio.",
     options: [],
     active: null,
   },
@@ -147,7 +146,7 @@ function CardContent({ step, index }: { step: typeof steps[0]; index: number }) 
               className="text-sm"
               style={{ color: isFirst ? "rgba(255,255,255,0.9)" : "#2D2926" }}
             >
-              Pokażemy Ci dostępne terminy i formę wsparcia pasującą do Ciebie.
+              Omówimy dostępność i formę konsultacji właściwą dla Twojej sytuacji.
             </p>
           </div>
         )}
@@ -177,7 +176,7 @@ export default function QuizPreview() {
     <section className="section-padding bg-[#FDFBF7]">
       <div className="container-main">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left — copy */}
+          {/* Left, copy */}
           <AnimatedSection className="lg:order-2">
             <p className="section-label mb-4">Główna ścieżka</p>
             <h2
@@ -190,7 +189,7 @@ export default function QuizPreview() {
               className="text-[#6F6860] mb-8"
               style={{ fontSize: "1.0625rem", lineHeight: 1.75 }}
             >
-              Krótki quiz — bez diagnozy, bez presji, bez wiedzy medycznej. Po prostu opowiedz,
+              Krótki quiz, bez diagnozy, bez presji, bez wiedzy medycznej. Po prostu opowiedz,
               co czujesz. Resztą zajmiemy się my.
             </p>
 
@@ -220,12 +219,10 @@ export default function QuizPreview() {
               ))}
             </div>
 
-            <Link href="/quiz" className="btn-primary">
-              Rozpocznij quiz
-            </Link>
+            <BookingCTA text="Wybierz termin konsultacji" className="btn-primary" />
           </AnimatedSection>
 
-          {/* Right — quiz mockup */}
+          {/* Right, quiz mockup */}
           <div className="lg:order-1 flex flex-col gap-4">
             {steps.map((step, i) => (
               <QuizStepCard key={step.n} step={step} index={i} preview={i > 0} />

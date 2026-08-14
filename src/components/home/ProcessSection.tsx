@@ -1,23 +1,34 @@
 "use client";
+import { CalendarDays, MailCheck, Monitor, MessageCircle } from "lucide-react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const steps = [
   {
     n: "01",
-    title: "Opowiedz, czego potrzebujesz",
-    desc: "Wypełnij krótki quiz albo wybierz specjalistę samodzielnie.",
+    Icon: CalendarDays,
+    title: "Wybierasz termin",
+    desc: "Sprawdzasz dostępne terminy online i wybierasz godzinę konsultacji.",
     color: "#1F314D",
   },
   {
     n: "02",
-    title: "Wybierz osobę i termin",
-    desc: "Zobacz dostępność, specjalizacje i spokojnie podejmij decyzję.",
+    Icon: MailCheck,
+    title: "Opłacasz konsultację",
+    desc: "Płatność odbywa się podczas rezerwacji. Po niej otrzymujesz potwierdzenie.",
     color: "#BC6C25",
   },
   {
     n: "03",
-    title: "Połącz się online",
-    desc: "Spotkaj się z psychologiem w bezpiecznej rozmowie wideo.",
+    Icon: Monitor,
+    title: "Łączysz się online",
+    desc: "Dołączasz z telefonu, komputera lub tabletu, w spokojnym miejscu.",
+    color: "#1F314D",
+  },
+  {
+    n: "04",
+    Icon: MessageCircle,
+    title: "Omawiamy sytuację",
+    desc: "Porządkujemy temat i ustalamy, jaki dalszy krok będzie adekwatny.",
     color: "#1F314D",
   },
 ];
@@ -34,37 +45,37 @@ export default function ProcessSection() {
           >
             Prosta droga do rozmowy.
           </h2>
+          <p className="mt-4 text-[#6F6860]" style={{ fontSize: "1rem", lineHeight: 1.7 }}>
+            Cały proces, od wyboru terminu po konsultację, odbywa się online.
+          </p>
         </AnimatedSection>
 
-        <div className="flex flex-col gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (
             <AnimatedSection key={step.n} delay={i * 0.1}>
               <div
-                className="flex gap-5 p-6 rounded-[24px]"
+                className="h-full rounded-[24px] p-6"
                 style={{
                   background: "rgba(255,255,255,0.7)",
                   border: "1px solid rgba(45,41,38,0.08)",
                 }}
               >
                 <div
-                  className="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center"
-                  style={{
-                    background: i === 1 ? "#BC6C25" : "#1F314D",
-                  }}
+                  className="mb-5 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl"
+                  style={{ background: step.color }}
                 >
-                  <span className="font-display font-semibold text-white text-sm">
-                    {step.n}
-                  </span>
+                  <step.Icon size={22} strokeWidth={1.8} className="text-white" aria-hidden="true" />
                 </div>
-                <div>
-                  <h3
-                    className="font-display font-semibold text-[#2D2926] mb-1.5"
-                    style={{ fontSize: "1rem" }}
-                  >
-                    {step.title}
-                  </h3>
-                  <p className="text-[#6F6860] text-sm leading-relaxed">{step.desc}</p>
-                </div>
+                <p className="mb-3 text-xs font-semibold tracking-widest" style={{ color: "#BC6C25" }}>
+                  {step.n}
+                </p>
+                <h3
+                  className="font-display mb-1.5 font-semibold text-[#2D2926]"
+                  style={{ fontSize: "1rem" }}
+                >
+                  {step.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-[#6F6860]">{step.desc}</p>
               </div>
             </AnimatedSection>
           ))}

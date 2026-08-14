@@ -1,9 +1,9 @@
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const stats = [
-  { value: "8 lat", label: "doświadczenia w psychologii" },
-  { value: "1 500+", label: "przeprowadzonych sesji" },
-  { value: "4.9 / 5", label: "średnia ocena klientów" },
+  { value: "Online", label: "z Polski i z zagranicy" },
+  { value: "250 zł", label: "konsultacja 50 minut" },
+  { value: "Poufność", label: "pełna tajemnica zawodowa" },
 ];
 
 export default function SocialProofBar() {

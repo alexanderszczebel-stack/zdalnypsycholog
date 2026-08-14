@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import BlogCard from "@/components/blog/BlogCard";
 import { getAllPosts } from "@/lib/blog";
+import { canonicalUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Blog | Psychologia online – artykuły i porady",
+  title: "Blog | Obszary pomocy i psychologia online",
   description:
-    "Artykuły o zdrowiu psychicznym, terapii online, ADHD, wypaleniu zawodowym i wielu innych tematach. Napisane przez psychologa.",
+    "Spokojne, eksperckie artykuły o obszarach pomocy psychologicznej: lęku, stresie, wypaleniu, relacjach, samoocenie i konsultacjach online.",
+  alternates: { canonical: canonicalUrl("/blog") },
 };
 
 export default function BlogPage() {
@@ -19,11 +21,11 @@ export default function BlogPage() {
           <AnimatedSection>
             <span className="section-label justify-center">Blog</span>
             <h1 className="font-display font-bold text-4xl md:text-5xl text-[color:var(--color-text-primary)] mb-4 leading-tight">
-              Artykuły o zdrowiu psychicznym
+              Artykuły o obszarach pomocy
             </h1>
             <p className="text-[color:var(--color-text-secondary)] text-lg max-w-2xl mx-auto">
-              Praktyczna wiedza z zakresu psychologii, napisana przystępnym językiem przez
-              doświadczonego psychologa.
+              Krótkie teksty edukacyjne, które pomagają nazwać trudność, sprawdzić
+              możliwe sygnały przeciążenia i zdecydować, czy konsultacja może być dobrym krokiem.
             </p>
           </AnimatedSection>
         </div>

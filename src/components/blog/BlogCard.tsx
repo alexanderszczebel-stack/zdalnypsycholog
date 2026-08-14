@@ -7,6 +7,7 @@ const categoryColors: Record<string, string> = {
   "Zrozumieć Emocje": "bg-purple-50 text-purple-700",
   "Zdrowie Psychiczne": "bg-green-50 text-green-700",
   "Relacje": "bg-pink-50 text-pink-700",
+  "Obszary pomocy": "bg-[#F6EFE6] text-[#1F314D]",
 };
 
 const gradients = [
@@ -53,7 +54,7 @@ export default function BlogCard({ post, index = 0 }: Props) {
             </span>
           </div>
           <p className="mt-4 text-[color:var(--color-primary)] text-sm font-medium group-hover:underline underline-offset-4">
-            Czytaj więcej →
+            Czytaj artykuł →
           </p>
         </div>
       </article>

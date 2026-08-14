@@ -34,7 +34,7 @@ const stepMeta = [
   {
     step: 1,
     question: "Co jest teraz dla Ciebie najtrudniejsze?",
-    hint: "Wybierz to, co najbardziej rezonuje. Możesz się pomylić — to nie egzamin.",
+    hint: "Wybierz to, co najbardziej rezonuje. Możesz się pomylić, to nie egzamin.",
     key: "challenge" as keyof QuizAnswers,
     options: step1Options,
     cols: 2,
@@ -42,7 +42,7 @@ const stepMeta = [
   {
     step: 2,
     question: "Jakiej formy wsparcia szukasz?",
-    hint: "Możesz zmienić zdanie w każdej chwili — to tylko punkt wyjścia.",
+    hint: "Możesz zmienić zdanie w każdej chwili, to tylko punkt wyjścia.",
     key: "supportType" as keyof QuizAnswers,
     options: step2Options,
     cols: 1,
@@ -122,7 +122,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
             className="fixed inset-0 z-[101] flex items-end sm:items-center justify-center p-0 sm:p-4"
             role="dialog"
             aria-modal="true"
-            aria-label="Quiz — wybór specjalisty"
+            aria-label="Quiz, wybór specjalisty"
           >
             <div
               className="relative w-full sm:max-w-lg rounded-t-[32px] sm:rounded-[32px] overflow-hidden"
@@ -172,7 +172,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                       style={{ fontSize: "1.125rem" }}
                     >
                       {isDone
-                        ? "Gotowe — mamy Ci coś do pokazania."
+                        ? "Gotowe, mamy Ci coś do pokazania."
                         : current.question}
                     </h2>
                     {!isDone && (
@@ -270,8 +270,8 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                         Na tej podstawie możemy spokojnie porozmawiać o tym, czego potrzebujesz.
                       </h3>
                       <p className="text-[#9A8E85] text-sm mb-7 max-w-sm mx-auto leading-relaxed">
-                        Umów konsultację i wybierz termin, który Ci pasuje.
-                        Bez presji, we własnym tempie.
+                        Skontaktuj się, aby ustalić możliwość rozpoczęcia konsultacji.
+                        Termin ustalany jest bezpośrednio.
                       </p>
 
                       <Link
@@ -279,7 +279,7 @@ export default function QuizModal({ isOpen, onClose }: QuizModalProps) {
                         onClick={onClose}
                         className="btn-primary w-full justify-center mb-3"
                       >
-                        Umów konsultację
+                        Przejdź do kontaktu
                       </Link>
                       <button
                         onClick={onClose}

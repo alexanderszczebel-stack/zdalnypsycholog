@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { CheckCircle2 } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const schema = z.object({
   name: z.string().min(2, "Podaj imię i nazwisko"),
@@ -18,16 +19,56 @@ type FormData = z.infer<typeof schema>;
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    reset,
+    formState: { errors },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const onSubmit = async (_data: FormData) => {
-    await new Promise((r) => setTimeout(r, 800));
-    setSubmitted(true);
+  const onSubmit = async (data: FormData) => {
+    setIsLoading(true);
+
+    const formData = new FormData();
+    formData.append("access_key", "c05b8b38-3ec4-46e7-8e25-10e7b43d3c6b");
+    formData.append("subject", "Nowa wiadomość z zdalnypsycholog.pl");
+    formData.append("from_name", "zdalnypsycholog.pl");
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    if (data.phone) formData.append("phone", data.phone);
+    formData.append("topic", data.topic);
+    formData.append("message", data.message);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const responseData = await response.json();
+
+      if (responseData.success) {
+        setIsSuccess(true);
+        setIsError(false);
+        trackEvent("formularz_wyslany", {
+          event_category: "kontakt",
+          event_label: "formularz_kontakt",
+        });
+        reset();
+        setSubmitted(true);
+      } else {
+        setIsError(true);
+        setIsSuccess(false);
+      }
+    } catch {
+      setIsError(true);
+      setIsSuccess(false);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (submitted) {
@@ -38,7 +79,7 @@ export default function ContactForm() {
           Dziękujemy!
         </h3>
         <p className="text-[color:var(--color-text-secondary)]">
-          Odpiszemy w ciągu 24 godzin w dni robocze.
+          Wiadomość została przekazana. Odpowiedź zostanie wysłana w dni robocze.
         </p>
       </div>
     );
@@ -89,8 +130,8 @@ export default function ContactForm() {
         </label>
         <select {...register("topic")} className="input-field">
           <option value="">Wybierz temat</option>
-          <option value="pytanie">Pytanie o terapię</option>
-          <option value="rezerwacja">Rezerwacja wizyty</option>
+          <option value="pytanie">Pytanie o konsultację</option>
+          <option value="rezerwacja">Ustalenie terminu</option>
           <option value="techniczne">Problem techniczny</option>
           <option value="inne">Inne</option>
         </select>
@@ -107,7 +148,7 @@ export default function ContactForm() {
           {...register("message")}
           className="input-field resize-none"
           rows={5}
-          placeholder="W czym mogę Ci pomóc?"
+          placeholder="Krótko opisz temat konsultacji lub preferowany sposób kontaktu."
         />
         {errors.message && (
           <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>
@@ -133,11 +174,21 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        disabled={isSubmitting}
+        disabled={isLoading}
         className="btn-primary w-full disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {isSubmitting ? "Wysyłanie..." : "Wyślij wiadomość"}
+        {isLoading ? "Wysyłanie..." : "Wyślij wiadomość"}
       </button>
+      {isSuccess && (
+        <p className="text-sm text-green-700 bg-green-50 px-4 py-3 rounded-xl mt-3">
+          Wiadomość wysłana. Odpowiedź otrzymasz w dni robocze.
+        </p>
+      )}
+      {isError && (
+        <p className="text-sm text-red-700 bg-red-50 px-4 py-3 rounded-xl mt-3">
+          Coś poszło nie tak. Spróbuj ponownie albo skontaktuj się telefonicznie.
+        </p>
+      )}
     </form>
   );
 }

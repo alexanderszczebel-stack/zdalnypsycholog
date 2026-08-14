@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import BookingCTA from "@/components/booking/BookingCTA";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
@@ -62,18 +63,18 @@ export default function SpecialistsSection() {
 
                   <div className="flex gap-6 mb-4 mt-3">
                     <div>
-                      <p className="font-semibold text-[#1F314D] text-lg">8 lat</p>
-                      <p className="text-xs text-[#9A8E85]">doświadczenia</p>
+                      <p className="font-semibold text-[#1F314D] text-lg">Online</p>
+                      <p className="text-xs text-[#9A8E85]">Polska i zagranica</p>
                     </div>
                     <div className="w-px" style={{background: 'rgba(45,41,38,0.12)'}}></div>
                     <div>
-                      <p className="font-semibold text-[#1F314D] text-lg">1500+</p>
-                      <p className="text-xs text-[#9A8E85]">sesji</p>
+                      <p className="font-semibold text-[#1F314D] text-lg">Telefon</p>
+                      <p className="text-xs text-[#9A8E85]">ustalenie terminu</p>
                     </div>
                     <div className="w-px" style={{background: 'rgba(45,41,38,0.12)'}}></div>
                     <div>
-                      <p className="font-semibold text-[#1F314D] text-lg">4.9 / 5</p>
-                      <p className="text-xs text-[#9A8E85]">Google Reviews</p>
+                      <p className="font-semibold text-[#1F314D] text-lg">CBT/TSR</p>
+                      <p className="text-xs text-[#9A8E85]">uporządkowana praca</p>
                     </div>
                   </div>
 
@@ -94,9 +95,8 @@ export default function SpecialistsSection() {
                   </div>
 
                   <p className="text-sm text-[#6F6860] mt-3">
-                    Konsultacja:{' '}
-                    <strong className="text-[#2D2926] font-semibold">150 zł / 50 min</strong>
-                    {' '}· bez zobowiązań
+                    Konsultacja online prowadzona indywidualnie. Szczegóły cen znajdują się
+                    w zakładce cennika, a termin ustalany jest bezpośrednio.
                   </p>
 
                   <div className="flex flex-wrap gap-2 mt-3">
@@ -124,15 +124,13 @@ export default function SpecialistsSection() {
                         className="w-2 h-2 rounded-full flex-shrink-0 animate-pulse"
                         style={{ background: "#2A7A4B" }}
                       />
-                      <p className="text-sm text-[#6F6860]">Wolny termin: jutro</p>
+                      <p className="text-sm text-[#6F6860]">Liczba terminów ograniczona</p>
                     </div>
 
                     <Link href="/o-mnie" className="btn-secondary text-sm py-2.5 px-5 w-fit">
                       Poznaj mnie
                     </Link>
-                    <Link href="/quiz" className="btn-primary text-sm py-2.5 px-5 w-fit">
-                      Zrób pierwszy krok
-                    </Link>
+                    <BookingCTA text="Wybierz termin" className="btn-primary text-sm py-2.5 px-5 w-fit" iconSize={15} />
                   </div>
                 </div>
               </div>

@@ -1,5 +1,15 @@
 import Link from "next/link";
 import Logo, { LogoMark } from "./Logo";
+import BookingCTA from "@/components/booking/BookingCTA";
+import TrackedAnchor from "@/components/analytics/TrackedAnchor";
+import {
+  CONTACT_EMAIL,
+  PHONE_EVENT_LABEL,
+  PHONE_HREF,
+  PHONE_NUMBER,
+  WHATSAPP_LABEL,
+  WHATSAPP_URL,
+} from "@/lib/contact";
 
 const navColumns = [
   {
@@ -8,14 +18,14 @@ const navColumns = [
       { href: "/o-mnie", label: "O mnie" },
       { href: "/jak-to-dziala", label: "Jak to działa" },
       { href: "/obszary-pomocy", label: "Obszary pomocy" },
-      { href: "/quiz", label: "Wypełnij quiz" },
+      { href: "/cennik", label: "Cennik" },
+      { href: "/blog", label: "Blog" },
+      { href: "/faq", label: "FAQ" },
     ],
   },
   {
     label: "Wiedza",
     links: [
-      { href: "/blog", label: "Blog" },
-      { href: "/faq", label: "FAQ" },
       { href: "/blog?kategoria=Terapia+online", label: "Terapia online" },
     ],
   },
@@ -25,6 +35,7 @@ const navColumns = [
       { href: "/kontakt", label: "Kontakt" },
       { href: "/bezpieczenstwo-i-prywatnosc", label: "Bezpieczeństwo" },
       { href: "/polityka-prywatnosci", label: "Polityka prywatności" },
+      { href: "/polityka-cookies", label: "Polityka cookies" },
       { href: "/regulamin", label: "Regulamin" },
     ],
   },
@@ -52,16 +63,59 @@ export default function Footer() {
               className="text-sm leading-relaxed mb-6 max-w-xs"
               style={{ color: "rgba(255,255,255,0.55)" }}
             >
-              zdalnypsycholog pomaga spokojnie znaleźć profesjonalne wsparcie online. Bez presji.
-              Bez oceniania. W bezpiecznej przestrzeni.
+              Konsultacje psychologiczne online prowadzone indywidualnie. Wybór terminu i
+              płatność odbywają się online.
             </p>
-            <a
-              href="mailto:kontakt@zdalnypsycholog.pl"
-              className="text-sm transition-colors"
-              style={{ color: "rgba(255,255,255,0.45)" }}
-            >
-              kontakt@zdalnypsycholog.pl
-            </a>
+            <div className="flex flex-col gap-2">
+              <BookingCTA
+                text="Wybierz termin konsultacji"
+                className="inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/15"
+                eventName="przejscie_do_wyboru_terminu"
+                iconSize={15}
+              />
+              <TrackedAnchor
+                href={`mailto:${CONTACT_EMAIL}`}
+                eventName="klik_email"
+                eventParams={{
+                  event_category: "kontakt",
+                  event_label: `mailto:${CONTACT_EMAIL}`,
+                }}
+                className="text-sm transition-colors"
+                style={{ color: "rgba(255,255,255,0.45)" }}
+              >
+                {CONTACT_EMAIL}
+              </TrackedAnchor>
+              <TrackedAnchor
+                href={PHONE_HREF}
+                eventName="klik_telefon"
+                eventParams={{
+                  event_category: "kontakt",
+                  event_label: PHONE_EVENT_LABEL,
+                }}
+                className="text-sm transition-colors"
+                style={{ color: "rgba(255,255,255,0.45)" }}
+              >
+                {PHONE_NUMBER}
+              </TrackedAnchor>
+              <p className="max-w-xs text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.35)" }}>
+                Masz pytanie organizacyjne przed rezerwacją? Zadzwoń. Wybór terminu i płatność
+                odbywają się online.
+              </p>
+              <TrackedAnchor
+                href={WHATSAPP_URL}
+                eventName="klik_telefon"
+                eventParams={{
+                  event_category: "whatsapp",
+                  event_label: WHATSAPP_URL,
+                }}
+                className="text-sm transition-colors"
+                style={{ color: "rgba(255,255,255,0.45)" }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {WHATSAPP_LABEL}
+              </TrackedAnchor>
+            </div>
           </div>
 
           {/* Nav columns */}

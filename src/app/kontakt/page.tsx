@@ -1,22 +1,34 @@
 import type { Metadata } from "next";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactForm from "@/components/contact/ContactForm";
-import { Mail, Phone, Clock } from "lucide-react";
+import TrackedAnchor from "@/components/analytics/TrackedAnchor";
+import BookingCTA from "@/components/booking/BookingCTA";
+import { canonicalUrl } from "@/lib/site";
+import { CalendarDays, Mail, MessageCircle, Phone, Clock } from "lucide-react";
+import {
+  CONTACT_EMAIL,
+  PHONE_EVENT_LABEL,
+  PHONE_HREF,
+  PHONE_NUMBER,
+  WHATSAPP_LABEL,
+  WHATSAPP_URL,
+} from "@/lib/contact";
 
 export const metadata: Metadata = {
-  title: "Kontakt | Umów Konsultację Psychologiczną Online",
+  title: "Kontakt | Konsultacja psychologiczna online",
   description:
-    "Skontaktuj się z ZdalnyPsycholog.pl. Umów konsultację, zadaj pytanie lub napisz wiadomość. Odpowiemy w ciągu 24 godzin.",
+    "Wybierz termin konsultacji psychologicznej online lub zadaj krótkie pytanie organizacyjne przed rezerwacją.",
+  alternates: { canonical: canonicalUrl("/kontakt") },
 };
 
 const minieFaq = [
   {
     q: "Czy mogę umówić wizytę telefonicznie?",
-    a: "Tak, zadzwoń do nas w godzinach pracy (pon–pt, 9:00–17:00). Chętnie pomożemy wybrać odpowiedni termin.",
+    a: "Wybór terminu i płatność odbywają się online. Telefon pozostaje dostępny w sprawach organizacyjnych przed rezerwacją.",
   },
   {
     q: "Czy mogę zadać pytanie przed umówieniem wizyty?",
-    a: "Oczywiście! Skorzystaj z formularza kontaktowego lub napisz e-mail. Odpiszemy w ciągu 24 godzin.",
+    a: "Tak. Możesz zadzwonić, napisać przez WhatsApp albo skorzystać z formularza kontaktowego.",
   },
   {
     q: "Gdzie znajdę Politykę Prywatności?",
@@ -32,10 +44,11 @@ export default function KontaktPage() {
           <AnimatedSection>
             <span className="section-label justify-center">Kontakt</span>
             <h1 className="font-display font-bold text-4xl md:text-5xl text-[color:var(--color-text-primary)] mb-4 leading-tight">
-              Napisz do nas
+              Kontakt i dostępne terminy
             </h1>
             <p className="text-[color:var(--color-text-secondary)] text-lg max-w-xl mx-auto">
-              Masz pytania? Chcesz umówić wizytę? Jesteśmy tu dla Ciebie.
+              Konsultacje odbywają się po wyborze terminu online i dokonaniu płatności. Formularz
+              i telefon pozostają dostępne do pytań organizacyjnych.
             </p>
           </AnimatedSection>
         </div>
@@ -47,6 +60,21 @@ export default function KontaktPage() {
                 <h2 className="font-display font-bold text-xl text-[color:var(--color-text-primary)] mb-5">
                   Dane kontaktowe
                 </h2>
+                <div
+                  className="rounded-2xl p-5 mb-6 bg-white shadow-[var(--shadow-card)]"
+                  style={{ border: "1px solid rgba(45,41,38,0.06)" }}
+                >
+                  <p className="text-sm leading-relaxed text-[color:var(--color-text-secondary)] mb-4">
+                    Liczba dostępnych terminów w tygodniu jest ograniczona. Główna ścieżka to
+                    wybór terminu i płatność online.
+                  </p>
+                  <div className="flex flex-col gap-3">
+                    <BookingCTA text="Wybierz termin konsultacji" className="btn-primary" />
+                    <a href="#formularz" className="btn-secondary">
+                      Mam pytanie organizacyjne
+                    </a>
+                  </div>
+                </div>
                 <ul className="space-y-4">
                   <li className="flex gap-4 items-start">
                     <div className="w-10 h-10 rounded-xl bg-[color:var(--color-primary)]/10 flex items-center justify-center flex-shrink-0">
@@ -54,9 +82,17 @@ export default function KontaktPage() {
                     </div>
                     <div>
                       <p className="text-sm font-medium text-[color:var(--color-text-primary)] mb-0.5">E-mail</p>
-                      <a href="mailto:kontakt@zdalnypsycholog.pl" className="text-[color:var(--color-primary)] text-sm hover:underline">
-                        kontakt@zdalnypsycholog.pl
-                      </a>
+                      <TrackedAnchor
+                        href={`mailto:${CONTACT_EMAIL}`}
+                        eventName="klik_email"
+                        eventParams={{
+                          event_category: "kontakt",
+                          event_label: `mailto:${CONTACT_EMAIL}`,
+                        }}
+                        className="text-[color:var(--color-primary)] text-sm hover:underline"
+                      >
+                        {CONTACT_EMAIL}
+                      </TrackedAnchor>
                     </div>
                   </li>
                   <li className="flex gap-4 items-start">
@@ -65,9 +101,56 @@ export default function KontaktPage() {
                     </div>
                     <div>
                       <p className="text-sm font-medium text-[color:var(--color-text-primary)] mb-0.5">Telefon</p>
-                      <a href="tel:+48123456789" className="text-[color:var(--color-primary)] text-sm hover:underline">
-                        +48 123 456 789
-                      </a>
+                      <TrackedAnchor
+                        href={PHONE_HREF}
+                        eventName="klik_telefon"
+                        eventParams={{
+                          event_category: "kontakt",
+                          event_label: PHONE_EVENT_LABEL,
+                        }}
+                        className="text-[color:var(--color-primary)] text-sm hover:underline"
+                      >
+                        {PHONE_NUMBER}
+                      </TrackedAnchor>
+                    </div>
+                  </li>
+                  <li className="flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-xl bg-[color:var(--color-primary)]/10 flex items-center justify-center flex-shrink-0">
+                      <MessageCircle size={18} className="text-[color:var(--color-primary)]" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-[color:var(--color-text-primary)] mb-0.5">WhatsApp</p>
+                      <TrackedAnchor
+                        href={WHATSAPP_URL}
+                        eventName="klik_telefon"
+                        eventParams={{
+                          event_category: "whatsapp",
+                          event_label: WHATSAPP_URL,
+                        }}
+                        className="text-[color:var(--color-primary)] text-sm hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {WHATSAPP_LABEL}
+                      </TrackedAnchor>
+                    </div>
+                  </li>
+                  <li className="flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-xl bg-[color:var(--color-primary)]/10 flex items-center justify-center flex-shrink-0">
+                      <CalendarDays size={18} className="text-[color:var(--color-primary)]" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-[color:var(--color-text-primary)] mb-0.5">
+                        Terminy online
+                      </p>
+                      <TrackedAnchor
+                        href="/polacy-za-granica/#rezerwacja"
+                        eventName="przejscie_do_wyboru_terminu"
+                        eventParams={{ event_category: "booking", event_label: "/polacy-za-granica/#rezerwacja" }}
+                        className="text-[color:var(--color-primary)] text-sm hover:underline"
+                      >
+                        Wybierz termin konsultacji
+                      </TrackedAnchor>
                     </div>
                   </li>
                   <li className="flex gap-4 items-start">
@@ -76,7 +159,10 @@ export default function KontaktPage() {
                     </div>
                     <div>
                       <p className="text-sm font-medium text-[color:var(--color-text-primary)] mb-0.5">Czas odpowiedzi</p>
-                      <p className="text-[color:var(--color-text-secondary)] text-sm">Do 24h w dni robocze (pon–pt, 9:00–17:00)</p>
+                      <p className="text-[color:var(--color-text-secondary)] text-sm">
+                        Po rezerwacji otrzymasz potwierdzenie i informacje organizacyjne na
+                        podany adres e-mail.
+                      </p>
                     </div>
                   </li>
                 </ul>
@@ -99,9 +185,9 @@ export default function KontaktPage() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.15}>
-            <div className="bg-white rounded-2xl p-8 shadow-[var(--shadow-card)]">
+            <div id="formularz" className="bg-white rounded-2xl p-8 shadow-[var(--shadow-card)]">
               <h2 className="font-display font-bold text-xl text-[color:var(--color-text-primary)] mb-6">
-                Formularz kontaktowy
+                Formularz kontaktowy jako opcja dodatkowa
               </h2>
               <ContactForm />
             </div>

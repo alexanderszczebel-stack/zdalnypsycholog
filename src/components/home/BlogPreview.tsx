@@ -8,25 +8,25 @@ const articles = [
     category: "Terapia online",
     title: "Jak wygląda pierwsza konsultacja z psychologiem online?",
     excerpt:
-      "Wiele osób zastanawia się, czego się spodziewać. Spokojnie — nikt nie oczekuje gotowości ani precyzyjnych odpowiedzi.",
+      "Co warto wiedzieć przed pierwszym spotkaniem i jak przygotować spokojne warunki rozmowy online.",
     readTime: "4 min",
-    href: "/blog/jak-wyglada-konsultacja",
+    href: "/blog/psycholog-online-czy-dziala",
   },
   {
     category: "Zrozumienie siebie",
     title: "Kiedy stres zaczyna być sygnałem, że warto porozmawiać?",
     excerpt:
-      "Stres jest naturalny. Ale jest też taki poziom napięcia, który mówi nam, że potrzebujemy wsparcia — i to jest w porządku.",
+      "Stres jest naturalny, ale długotrwałe przeciążenie może wymagać uporządkowania z psychologiem.",
     readTime: "5 min",
-    href: "/blog/kiedy-stres-to-sygnal",
+    href: "/blog/stres-i-przeciazenie",
   },
   {
-    category: "Terapia online",
-    title: "Jak wybrać psychologa, jeśli nie wiesz, od czego zacząć?",
+    category: "Zrozumienie siebie",
+    title: "Lęk i niepokój: kiedy rozmowa może pomóc?",
     excerpt:
-      "Nie musisz wiedzieć, jakiego specjalisty szukasz. Kilka spokojnych pytań wystarczy, żeby znaleźć właściwy kierunek.",
+      "Nie trzeba mieć gotowej diagnozy. Warto zacząć od nazwania sytuacji i sprawdzenia, co ją podtrzymuje.",
     readTime: "6 min",
-    href: "/blog/jak-wybrac-psychologa",
+    href: "/blog/lek-i-niepokoj",
   },
 ];
 

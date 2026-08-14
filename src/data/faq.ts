@@ -1,15 +1,15 @@
 export const faqItems = [
   {
     id: 1,
-    question: "Czy terapia online jest tak samo skuteczna jak tradycyjna?",
+    question: "Czy konsultacja online może być pomocna?",
     answer:
-      "Tak, liczne badania naukowe potwierdzają, że terapia online jest równie skuteczna jak terapia prowadzona w gabinecie, zwłaszcza w przypadku lęku, depresji i stresu. Kluczowa jest relacja terapeutyczna, która buduje się równie efektywnie online.",
+      "Tak. Konsultacja online może pomóc uporządkować sytuację, nazwać trudności i ustalić dalszy kierunek pracy. Ważne są poufność, spokojne warunki rozmowy i jasna struktura spotkania.",
   },
   {
     id: 2,
     question: "Jak zapewniona jest prywatność i bezpieczeństwo?",
     answer:
-      "Wszystkie połączenia są szyfrowane end-to-end. Platforma spełnia wymogi RODO. Twoje dane osobowe i treść sesji są ściśle chronione i nigdy nie są udostępniane osobom trzecim.",
+      "Konsultacje prowadzone są z poszanowaniem poufności i zasad etyki zawodu psychologa. Przed spotkaniem otrzymujesz informacje organizacyjne, a rozmowa powinna odbywać się w spokojnym, prywatnym miejscu.",
   },
   {
     id: 3,
@@ -21,30 +21,30 @@ export const faqItems = [
     id: 4,
     question: "Ile kosztuje konsultacja i jak mogę zapłacić?",
     answer:
-      "Szczegółowy cennik znajdziesz na stronie Oferta i Cennik. Akceptujemy płatności online przez PayU i Stripe w PLN, EUR, USD i GBP.",
+      "Szczegółowy cennik znajdziesz na stronie Cennik. Wybór terminu i płatność odbywają się online, a konsultacja zostaje potwierdzona po dokonaniu płatności.",
   },
   {
     id: 5,
     question: "Czy mogę zmienić lub odwołać termin?",
     answer:
-      "Tak. Możesz odwołać lub przełożyć sesję bezpłatnie do 24 godzin przed planowanym terminem. Pełne zasady opisane są w regulaminie.",
+      "Tak. Możliwość zmiany terminu ustalana jest zgodnie z zasadami opisanymi w regulaminie i informacjami przekazanymi przed konsultacją.",
   },
   {
     id: 6,
     question: "Co jeśli mam problemy techniczne podczas sesji?",
     answer:
-      "Skontaktuj się z nami natychmiast — przez telefon lub e-mail. Zaproponujemy rozwiązanie techniczne lub przełożenie sesji bez opłat.",
+      "W takiej sytuacji skontaktuj się telefonicznie lub mailowo. Wspólnie ustalimy, czy możliwe jest kontynuowanie rozmowy albo wyznaczenie innego terminu.",
   },
   {
     id: 7,
     question: "Jak wybrać odpowiedniego psychologa?",
     answer:
-      "Na stronie \"O Mnie\" znajdziesz szczegółowe informacje o doświadczeniu i specjalizacjach Mikołaja. Możesz też umówić bezpłatną 15-minutową konsultację wstępną, by sprawdzić, czy czujesz się komfortowo.",
+      "Na stronie \"O mnie\" znajdziesz informacje o sposobie pracy Mikołaja. Następnie możesz wybrać dostępny termin konsultacji online.",
   },
   {
     id: 8,
     question: "Czy mogę korzystać z terapii online mieszkając za granicą?",
     answer:
-      "Absolutnie. Terapia online to idealne rozwiązanie dla Polaków za granicą. Podczas rezerwacji wybierz swoją strefę czasową — terminy dostosujemy do Ciebie.",
+      "Tak. Konsultacje online są dostępne dla Polaków za granicą. Wybierz dostępny termin online, uwzględniając swoją strefę czasową.",
   },
 ];
