@@ -144,9 +144,9 @@ export default function KontaktPage() {
                         Terminy online
                       </p>
                       <TrackedAnchor
-                        href="/polacy-za-granica/#rezerwacja"
+                        href="/rezerwacja"
                         eventName="przejscie_do_wyboru_terminu"
-                        eventParams={{ event_category: "booking", event_label: "/polacy-za-granica/#rezerwacja" }}
+                        eventParams={{ event_category: "booking", event_label: "/rezerwacja" }}
                         className="text-[color:var(--color-primary)] text-sm hover:underline"
                       >
                         Wybierz termin konsultacji

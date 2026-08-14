@@ -13,7 +13,6 @@ import {
   UserRound,
 } from "lucide-react";
 import BookingCTA from "@/components/booking/BookingCTA";
-import CalendeskBooking from "@/components/booking/CalendeskBooking";
 import { PhoneTextLink } from "@/components/ui/PhoneCTA";
 import { canonicalUrl } from "@/lib/site";
 import FAQPolacy from "./FAQPolacy";
@@ -45,7 +44,7 @@ const bookingSteps = [
   {
     icon: CalendarDays,
     title: "Wybierasz dostępny termin",
-    text: "Przechodzisz do sekcji rezerwacji i wybierasz godzinę konsultacji online.",
+    text: "Przechodzisz do strony rezerwacji i wybierasz godzinę konsultacji online.",
   },
   {
     icon: CreditCard,
@@ -155,7 +154,7 @@ export default function PolacyZaGranicaPage() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <BookingCTA
-                href="#rezerwacja"
+                href="/rezerwacja"
                 text="Wybierz termin konsultacji"
                 className="btn-primary w-full sm:w-auto"
                 eventName="przejscie_do_wyboru_terminu"
@@ -287,8 +286,6 @@ export default function PolacyZaGranicaPage() {
         </div>
       </section>
 
-      <CalendeskBooking />
-
       <section className="bg-[#FDFBF7] px-6 py-16 md:py-24">
         <div className="mx-auto max-w-3xl">
           <SectionIntro eyebrow="FAQ" title="Najczęstsze pytania przed rezerwacją" />
@@ -315,7 +312,7 @@ export default function PolacyZaGranicaPage() {
             </p>
           </div>
           <BookingCTA
-            href="#rezerwacja"
+            href="/rezerwacja"
             text="Wybierz termin konsultacji"
             className="btn-primary w-full sm:w-auto"
             eventName="przejscie_do_wyboru_terminu"

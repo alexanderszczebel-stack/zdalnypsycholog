@@ -103,7 +103,7 @@ export default function Footer() {
               </p>
               <TrackedAnchor
                 href={WHATSAPP_URL}
-                eventName="klik_telefon"
+                eventName="klik_whatsapp"
                 eventParams={{
                   event_category: "whatsapp",
                   event_label: WHATSAPP_URL,

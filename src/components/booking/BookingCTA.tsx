@@ -22,7 +22,7 @@ export default function BookingCTA({
   href = BOOKING_LANDING_URL,
   text = BOOKING_LABEL,
   className = "btn-primary",
-  eventName = "klik_glowne_cta",
+  eventName = "booking_cta_click",
   eventParams = {},
   iconSize = 17,
   target,

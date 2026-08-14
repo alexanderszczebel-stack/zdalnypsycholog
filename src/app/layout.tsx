@@ -6,7 +6,7 @@ import Footer from "@/components/layout/Footer";
 import { ConditionalNavbar, ConditionalFooter } from "@/components/layout/ConditionalNav";
 import CookieBanner from "@/components/ui/CookieBanner";
 import { SITE_URL, canonicalUrl } from "@/lib/site";
-import { CALENDESK_BOOKING_URL, CONTACT_EMAIL, PHONE_NUMBER, WHATSAPP_URL } from "@/lib/contact";
+import { CALENDLY_URL, CONTACT_EMAIL, PHONE_NUMBER, WHATSAPP_URL } from "@/lib/contact";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -73,7 +73,7 @@ const jsonLd = {
   url: SITE_URL,
   email: CONTACT_EMAIL,
   telephone: PHONE_NUMBER,
-  sameAs: [WHATSAPP_URL, CALENDESK_BOOKING_URL].filter(Boolean),
+  sameAs: [WHATSAPP_URL, CALENDLY_URL].filter(Boolean),
   areaServed: { "@type": "Country", name: "Poland" },
 };
 

@@ -1,4 +1,5 @@
 export type AnalyticsEventName =
+  | "booking_cta_click"
   | "klik_glowne_cta"
   | "przejscie_do_wyboru_terminu"
   | "rozpoczecie_rezerwacji"
