@@ -14,3 +14,13 @@ GOOGLE_SEND_CALENDAR_INVITES = "true"
 META_GRAPH_API_VERSION = "v25.0"
 
 [env.production]
+
+[[env.production.d1_databases]]
+binding = "BOOKINGS_DB"
+database_name = "zdalnypsycholog-bookings"
+database_id = "f978d9a5-fbcc-4ebc-8345-9928dd512274"
+
+[env.production.vars]
+BOOKING_SITE_URL = "https://zdalnypsycholog.pl"
+GOOGLE_SEND_CALENDAR_INVITES = "true"
+META_GRAPH_API_VERSION = "v25.0"
