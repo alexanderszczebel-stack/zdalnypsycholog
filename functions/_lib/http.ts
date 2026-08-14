@@ -57,6 +57,19 @@ export function getSiteUrl(request: Request, env: CloudflareEnv) {
   return new URL(request.url).origin;
 }
 
+export function assertAllowedOrigin(request: Request, env: CloudflareEnv) {
+  const origin = request.headers.get("origin");
+  if (!origin) return;
+
+  const requestOrigin = new URL(request.url).origin;
+  const configuredOrigin = new URL(getSiteUrl(request, env)).origin;
+  const allowedOrigins = new Set([requestOrigin, configuredOrigin]);
+
+  if (!allowedOrigins.has(origin)) {
+    throw new HttpError(403, "origin_not_allowed", "Żądanie pochodzi z niedozwolonej domeny.");
+  }
+}
+
 export function getClientIp(request: Request) {
   const cfIp = request.headers.get("cf-connecting-ip");
   if (cfIp) return cfIp;

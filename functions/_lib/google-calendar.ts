@@ -256,3 +256,30 @@ export async function createGoogleCalendarEvent(env: CloudflareEnv, reservation:
     meetUrl,
   };
 }
+
+export async function deleteGoogleCalendarEvent(env: CloudflareEnv, eventId: string) {
+  const calendarId = requireEnv(env.GOOGLE_CALENDAR_ID, "GOOGLE_CALENDAR_ID");
+  const accessToken = await getGoogleAccessToken(env);
+  const sendInvites = env.GOOGLE_SEND_CALENDAR_INVITES !== "false";
+  const response = await fetch(
+    `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events/${encodeURIComponent(eventId)}?sendUpdates=${sendInvites ? "all" : "none"}`,
+    {
+      method: "DELETE",
+      headers: { authorization: `Bearer ${accessToken}` },
+    },
+  );
+
+  if (response.status === 404 || response.status === 410) {
+    return { deleted: false, alreadyMissing: true };
+  }
+
+  if (!response.ok) {
+    throw new HttpError(
+      502,
+      "google_event_delete_failed",
+      "Nie udało się usunąć wydarzenia Google Calendar.",
+    );
+  }
+
+  return { deleted: true, alreadyMissing: false };
+}

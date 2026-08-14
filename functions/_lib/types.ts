@@ -31,6 +31,7 @@ export type D1Database = {
 export type CloudflareEnv = {
   BOOKINGS_DB?: D1Database;
   BOOKING_SITE_URL?: string;
+  BOOKING_ADMIN_TOKEN?: string;
   STRIPE_SECRET_KEY?: string;
   STRIPE_WEBHOOK_SECRET?: string;
   STRIPE_PRICE_ID?: string;
@@ -60,6 +61,45 @@ export type BusyRange = {
   end: string;
 };
 
+export type ScheduleConfigRow = {
+  id: "default";
+  working_days: string;
+  work_start: string;
+  work_end: string;
+  min_lead_minutes: number;
+  max_advance_days: number;
+  slot_step_minutes: number;
+  updated_at: string;
+};
+
+export type BookingExtraSlotRow = {
+  id: string;
+  date: string;
+  start_time: string;
+  end_time: string;
+  note: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export type BookingBlackoutRow = {
+  id: string;
+  date: string;
+  start_time: string | null;
+  end_time: string | null;
+  note: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export type BookingReservationOverrideRow = {
+  reservation_id: string;
+  action: "released" | "cancelled";
+  note: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
 export type ReservationRow = {
   id: string;
   status: BookingStatus;
@@ -87,4 +127,10 @@ export type ReservationRow = {
   failure_reason: string | null;
   created_at: string;
   updated_at: string;
+};
+
+export type AdminReservationRow = ReservationRow & {
+  admin_action: "released" | "cancelled" | null;
+  admin_note: string | null;
+  admin_updated_at: string | null;
 };

@@ -57,19 +57,22 @@ function trackMetaFunnelEvent(eventName: AnalyticsEventName, params: AnalyticsEv
   }
 }
 
+function analyticsDebugEnabled() {
+  return process.env.NEXT_PUBLIC_ANALYTICS_DEBUG === "true";
+}
+
 export function trackEvent(
   eventName: AnalyticsEventName,
   params: AnalyticsEventParams = {},
 ) {
-  const eventParams = {
-    debug_mode: true,
-    ...params,
-  };
+  const eventParams = analyticsDebugEnabled() ? { debug_mode: true, ...params } : params;
 
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
     window.gtag("event", eventName, eventParams);
     trackMetaFunnelEvent(eventName, eventParams);
-    console.log("[GA4 event sent]", eventName, eventParams);
+    if (analyticsDebugEnabled()) {
+      console.info("[GA4 event sent]", eventName, eventParams);
+    }
     return;
   }
 
@@ -77,7 +80,9 @@ export function trackEvent(
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(["event", eventName, eventParams]);
     trackMetaFunnelEvent(eventName, eventParams);
-    console.warn("[GA4 event NOT sent] gtag unavailable", eventName, eventParams);
+    if (analyticsDebugEnabled()) {
+      console.warn("[GA4 event NOT sent] gtag unavailable", eventName, eventParams);
+    }
   }
 }
 

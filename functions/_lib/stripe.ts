@@ -125,6 +125,7 @@ export async function createStripeCheckoutSession(
   body.set("cancel_url", cancelUrl);
   body.set("customer_email", input.email);
   body.set("client_reference_id", input.reservationId);
+  body.set("integration_identifier", "zdalnypsycholog_booking_lpmtrvqa");
   body.set("expires_at", String(Math.floor(new Date(input.holdExpiresAt).getTime() / 1000)));
   body.set("line_items[0][quantity]", "1");
 
@@ -159,6 +160,7 @@ export async function createStripeCheckoutSession(
     headers: {
       authorization: `Bearer ${stripeSecretKey}`,
       "content-type": "application/x-www-form-urlencoded",
+      "stripe-version": "2026-07-29.dahlia",
     },
     body,
   });

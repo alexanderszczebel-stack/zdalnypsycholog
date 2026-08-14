@@ -1,4 +1,27 @@
-export const BOOKING_SETTINGS = {
+export type BookingSettings = {
+  serviceName: string;
+  timezone: string;
+  durationMinutes: number;
+  bufferMinutes: number;
+  slotStepMinutes: number;
+  minLeadMinutes: number;
+  maxAdvanceDays: number;
+  holdMinutes: number;
+  currency: string;
+  stripeCurrency: string;
+  priceAmount: number;
+  priceValue: number;
+  priceLabel: string;
+  workingDays: number[];
+  workingHours: {
+    start: string;
+    end: string;
+  };
+  bookingPath: string;
+  confirmationPath: string;
+};
+
+export const BOOKING_SETTINGS: BookingSettings = {
   serviceName: "Konsultacja psychologiczna online",
   timezone: "Europe/Warsaw",
   durationMinutes: 50,
@@ -20,6 +43,4 @@ export const BOOKING_SETTINGS = {
   },
   bookingPath: "/rezerwacja",
   confirmationPath: "/rezerwacja-potwierdzona",
-} as const;
-
-export type BookingSettings = typeof BOOKING_SETTINGS;
+};

@@ -17,13 +17,22 @@ Frontend pozostaje statyczny. Dynamiczne elementy obsługują Cloudflare Pages F
 
 - `GET /api/booking/availability` - zwraca wyłącznie dostępne terminy.
 - `POST /api/booking/checkout` - sprawdza termin, tworzy hold w D1 i Stripe Checkout Session.
+- `POST /api/booking/cancel` - zwalnia nieopłacony hold po powrocie klienta ze Stripe z anulowaną płatnością.
 - `GET /api/booking/status?reservation_id=...` - zwraca publiczny status opłaconej rezerwacji.
+- `GET /api/admin/bookings` - lista rezerwacji dla panelu admina.
+- `POST /api/admin/bookings` - ręczne zwolnienie albo anulowanie rezerwacji.
+- `GET /api/admin/schedule` - aktualny grafik, dodatkowe terminy i blokady.
+- `POST /api/admin/schedule` - zapis grafiku, wyjątków i blokad.
 - `POST /api/stripe/webhook` - potwierdza płatność Stripe i tworzy Google Calendar / Google Meet.
 
 Baza D1:
 
 - `booking_reservations` - holdy, płatności i identyfikatory Google Calendar.
 - `stripe_webhook_events` - idempotencja webhooków Stripe.
+- `booking_schedule_config` - edytowalny grafik widoczny w panelu.
+- `booking_extra_slots` - pojedyncze dodatkowe terminy poza stałym grafikiem.
+- `booking_blackouts` - ręczne blokady dni albo godzin.
+- `booking_reservation_overrides` - ręczne zwolnienia/anulowania rezerwacji.
 
 ## Konfiguracja rezerwacji
 
@@ -42,18 +51,28 @@ Tam zmienisz:
 
 Hold jest ustawiony na 31 minut, bo Stripe Checkout wymaga okna wygaśnięcia co najmniej około 30 minut. Dzięki temu checkout nie powinien pozostać aktywny po zwolnieniu terminu.
 
+Stałe dni pracy, godziny pracy, minimalne wyprzedzenie, zakres rezerwacji i krok slotów można też zmienić w panelu:
+
+```text
+https://zdalnypsycholog.pl/admin-rezerwacje/
+```
+
+Panel wymaga secretu `BOOKING_ADMIN_TOKEN`. Token nie jest linkiem publicznym i nie powinien trafić do repozytorium.
+
 ## ENV
 
 Publiczny frontend:
 
 ```bash
 NEXT_PUBLIC_META_PIXEL_ID=
+NEXT_PUBLIC_ANALYTICS_DEBUG=false
 ```
 
 Cloudflare Pages / Functions:
 
 ```bash
 BOOKING_SITE_URL=https://zdalnypsycholog.pl
+BOOKING_ADMIN_TOKEN=
 
 STRIPE_SECRET_KEY=
 STRIPE_WEBHOOK_SECRET=
@@ -88,6 +107,8 @@ Eventy do włączenia:
 
 - `checkout.session.completed`
 - `checkout.session.expired`
+- `checkout.session.async_payment_succeeded`
+- `checkout.session.async_payment_failed`
 
 ### Klik po kliku
 
@@ -99,10 +120,12 @@ Eventy do włączenia:
 6. Wejdź w Developers -> Webhooks.
 7. Kliknij Add endpoint.
 8. Wklej `https://zdalnypsycholog.pl/api/stripe/webhook`.
-9. Wybierz eventy `checkout.session.completed` i `checkout.session.expired`.
+9. Wybierz eventy `checkout.session.completed`, `checkout.session.expired`, `checkout.session.async_payment_succeeded` i `checkout.session.async_payment_failed`.
 10. Po zapisaniu skopiuj Signing secret do `STRIPE_WEBHOOK_SECRET`.
 
 Źródłem prawdy o płatności jest webhook. Return URL ze Stripe nie oznacza samodzielnie opłaconej wizyty.
+
+Checkout Session jest oznaczany przez `integration_identifier`, żeby w Stripe Dashboard łatwiej odróżniać ten flow od innych linków płatności.
 
 ## Google Calendar
 

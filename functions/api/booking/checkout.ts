@@ -1,17 +1,22 @@
-import { BOOKING_SETTINGS } from "../../../src/lib/booking-settings";
-import { findGeneratedSlot, getBlockedEndIso, isSlotBusy } from "../../_lib/booking-core";
+import { findGeneratedSlot, getBlockedEndIso, getBookingRange, isSlotBusy } from "../../_lib/booking-core";
 import {
+  blackoutRowsToBusyRanges,
   attachStripeSession,
   cleanupExpiredHolds,
   countRecentReservationsForIp,
   createReservationHold,
   getActiveBusyRanges,
   getActiveOverlap,
+  getReservationOverride,
+  getScheduleSettings,
+  getUpcomingBlackouts,
+  getUpcomingExtraSlots,
   isUniqueSlotError,
   markReservationStatus,
   requireDb,
 } from "../../_lib/db";
 import {
+  assertAllowedOrigin,
   errorResponse,
   getClientIp,
   getSiteUrl,
@@ -89,8 +94,15 @@ export async function onRequestPost(context: FunctionContext) {
   let reservationId: string | null = null;
 
   try {
+    assertAllowedOrigin(context.request, context.env);
     const payload = validatePayload(await readJsonBody<CheckoutPayload>(context.request));
-    const slot = findGeneratedSlot(payload.startDatetime, now);
+    const settings = await getScheduleSettings(db);
+    const range = getBookingRange(settings, now);
+    const [extraSlots, blackouts] = await Promise.all([
+      getUpcomingExtraSlots(db, range.today, range.maxDate),
+      getUpcomingBlackouts(db, range.today, range.maxDate),
+    ]);
+    const slot = findGeneratedSlot(payload.startDatetime, settings, now, extraSlots);
 
     if (!slot) {
       throw new HttpError(
@@ -114,11 +126,12 @@ export async function onRequestPost(context: FunctionContext) {
       );
     }
 
-    const blockedEnd = getBlockedEndIso(slot.end);
+    const blockedEnd = getBlockedEndIso(slot.end, settings);
     const googleBusy = await fetchGoogleBusy(context.env, slot.start, blockedEnd);
     const reservationBusy = await getActiveBusyRanges(db, slot.start, blockedEnd, nowIso);
+    const blackoutBusy = blackoutRowsToBusyRanges(blackouts, settings);
 
-    if (isSlotBusy(slot, [...googleBusy, ...reservationBusy])) {
+    if (isSlotBusy(slot, [...googleBusy, ...reservationBusy, ...blackoutBusy], settings)) {
       throw new HttpError(
         409,
         "slot_unavailable",
@@ -137,7 +150,7 @@ export async function onRequestPost(context: FunctionContext) {
 
     reservationId = crypto.randomUUID();
     const holdExpiresAt = new Date(
-      now.getTime() + BOOKING_SETTINGS.holdMinutes * 60 * 1000,
+      now.getTime() + settings.holdMinutes * 60 * 1000,
     ).toISOString();
     const metaEventId = `purchase_${reservationId}`;
 
@@ -146,7 +159,7 @@ export async function onRequestPost(context: FunctionContext) {
         id: reservationId,
         slotStart: slot.start,
         slotEnd: slot.end,
-        timezone: BOOKING_SETTINGS.timezone,
+        timezone: settings.timezone,
         firstName: payload.firstName,
         lastName: payload.lastName,
         email: payload.email,
@@ -177,7 +190,7 @@ export async function onRequestPost(context: FunctionContext) {
       reservationId,
       startDatetime: slot.start,
       endDatetime: slot.end,
-      timezone: BOOKING_SETTINGS.timezone,
+      timezone: settings.timezone,
       firstName: payload.firstName,
       lastName: payload.lastName,
       email: payload.email,
@@ -192,6 +205,15 @@ export async function onRequestPost(context: FunctionContext) {
       stripeSession.id,
       new Date().toISOString(),
     );
+
+    const released = await getReservationOverride(db, reservationId);
+    if (released) {
+      throw new HttpError(
+        409,
+        "slot_unavailable",
+        "Ten termin został właśnie zmieniony. Wybierz inną godzinę.",
+      );
+    }
 
     return jsonResponse({
       reservation_id: reservationId,

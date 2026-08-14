@@ -1,6 +1,13 @@
-import { BOOKING_SETTINGS } from "../../../src/lib/booking-settings";
 import { buildAvailability, getBookingRange } from "../../_lib/booking-core";
-import { cleanupExpiredHolds, getActiveBusyRanges, requireDb } from "../../_lib/db";
+import {
+  blackoutRowsToBusyRanges,
+  cleanupExpiredHolds,
+  getActiveBusyRanges,
+  getScheduleSettings,
+  getUpcomingBlackouts,
+  getUpcomingExtraSlots,
+  requireDb,
+} from "../../_lib/db";
 import { errorResponse, jsonResponse } from "../../_lib/http";
 import { fetchGoogleBusy } from "../../_lib/google-calendar";
 import type { FunctionContext } from "../../_lib/types";
@@ -10,27 +17,37 @@ export async function onRequestGet(context: FunctionContext) {
     const db = requireDb(context.env);
     const now = new Date();
     const nowIso = now.toISOString();
-    const range = getBookingRange(now);
+    const settings = await getScheduleSettings(db);
+    const range = getBookingRange(settings, now);
 
     await cleanupExpiredHolds(db, nowIso);
 
-    const [googleBusy, reservationBusy] = await Promise.all([
+    const [googleBusy, reservationBusy, blackouts, extraSlots] = await Promise.all([
       fetchGoogleBusy(context.env, range.timeMin, range.timeMax),
       getActiveBusyRanges(db, range.timeMin, range.timeMax, nowIso),
+      getUpcomingBlackouts(db, range.today, range.maxDate),
+      getUpcomingExtraSlots(db, range.today, range.maxDate),
     ]);
-    const days = buildAvailability([...googleBusy, ...reservationBusy], now);
+    const days = buildAvailability(
+      [...googleBusy, ...reservationBusy, ...blackoutRowsToBusyRanges(blackouts, settings)],
+      settings,
+      now,
+      extraSlots,
+    );
 
     return jsonResponse({
       config: {
-        serviceName: BOOKING_SETTINGS.serviceName,
-        timezone: BOOKING_SETTINGS.timezone,
-        durationMinutes: BOOKING_SETTINGS.durationMinutes,
-        priceLabel: BOOKING_SETTINGS.priceLabel,
-        priceValue: BOOKING_SETTINGS.priceValue,
-        currency: BOOKING_SETTINGS.currency,
-        holdMinutes: BOOKING_SETTINGS.holdMinutes,
-        minLeadMinutes: BOOKING_SETTINGS.minLeadMinutes,
-        maxAdvanceDays: BOOKING_SETTINGS.maxAdvanceDays,
+        serviceName: settings.serviceName,
+        timezone: settings.timezone,
+        durationMinutes: settings.durationMinutes,
+        priceLabel: settings.priceLabel,
+        priceValue: settings.priceValue,
+        currency: settings.currency,
+        holdMinutes: settings.holdMinutes,
+        minLeadMinutes: settings.minLeadMinutes,
+        maxAdvanceDays: settings.maxAdvanceDays,
+        workingDays: settings.workingDays,
+        workingHours: settings.workingHours,
       },
       days,
     });

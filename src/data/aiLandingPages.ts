@@ -358,6 +358,141 @@ export const aiLandingPages = [
       { href: "/pierwsza-konsultacja-psychologiczna-online", label: "Pierwsza konsultacja" },
     ],
   },
+  {
+    slug: "psycholog-online-ataki-paniki",
+    metaTitle: "Psycholog online przy atakach paniki",
+    metaDescription:
+      "Konsultacja psychologiczna online, gdy pojawiają się ataki paniki, silny lęk, kołatanie serca, duszność albo obawa przed kolejnym napadem.",
+    eyebrow: "Ataki paniki",
+    title: "Psycholog online przy atakach paniki i silnym lęku",
+    lead: [
+      "Atak paniki może być bardzo intensywnym doświadczeniem: pojawia się nagły lęk, napięcie w ciele, przyspieszone bicie serca, duszność albo myśl, że zaraz stanie się coś złego.",
+      "Konsultacja psychologiczna online może pomóc uporządkować, co się dzieje, jakie sytuacje poprzedzają napady i jaki pierwszy krok będzie adekwatny oraz bezpieczny.",
+    ],
+    quickFacts: ["panika", "silny lęk", "ciało i myśli", "pierwszy krok"],
+    sections: [
+      {
+        title: "Kiedy warto szukać wsparcia",
+        body: [
+          "Warto umówić konsultację, gdy napady paniki zaczynają wpływać na codzienne decyzje, sen, wychodzenie z domu, pracę albo relacje.",
+          "Jeśli objawy są nowe, bardzo silne albo budzą obawę o zdrowie somatyczne, warto skonsultować je także medycznie.",
+        ],
+        bullets: [
+          "boisz się kolejnego napadu",
+          "unikasz miejsc lub sytuacji",
+          "trudno odróżnić lęk od zagrożenia",
+          "potrzebujesz spokojnie omówić objawy",
+        ],
+      },
+      {
+        title: "Co można omówić na pierwszej konsultacji",
+        body: [
+          "Pierwsza rozmowa pomaga nazwać objawy, sprawdzić, kiedy się pojawiają, co je nasila oraz jakie reakcje pomagają krótkoterminowo, ale mogą utrwalać błędne koło lęku.",
+        ],
+      },
+      {
+        title: "Jak pracować z lękiem",
+        body: [
+          "Perspektywa CBT pomaga rozumieć związek reakcji ciała, interpretacji objawów i zachowań zabezpieczających. TSR może wspierać szukanie małych kroków i sytuacji, w których odzyskujesz choć trochę wpływu.",
+        ],
+      },
+    ],
+    goodFit: [
+      "doświadczasz nagłych fal lęku lub paniki",
+      "martwisz się objawami z ciała",
+      "chcesz zrozumieć mechanizm napadów",
+      "potrzebujesz pierwszej spokojnej rozmowy online",
+    ],
+    faq: [
+      {
+        question: "Czy atak paniki jest powodem do konsultacji psychologicznej?",
+        answer:
+          "Tak. Konsultacja może pomóc uporządkować objawy, zrozumieć kontekst i zaplanować dalsze kroki. Przy nowych lub nietypowych objawach warto równolegle zadbać o konsultację medyczną.",
+      },
+      {
+        question: "Czy muszę mieć diagnozę zaburzenia panicznego?",
+        answer:
+          "Nie. Na pierwszą konsultację można przyjść bez diagnozy, z opisem tego, co dzieje się w ciele, myślach i codziennym funkcjonowaniu.",
+      },
+      {
+        question: "Czy konsultacja online może odbyć się z domu?",
+        answer:
+          "Tak. Spotkanie odbywa się przez wideo, dlatego warto zadbać o spokojne miejsce i czas bez pośpiechu po rozmowie.",
+      },
+    ],
+    relatedLinks: [
+      { href: "/psycholog-online-lek-i-napiecie", label: "Psycholog online przy lęku" },
+      { href: "/pierwsza-konsultacja-psychologiczna-online", label: "Pierwsza konsultacja" },
+      { href: "/rezerwacja", label: "Wybierz termin" },
+    ],
+  },
+  {
+    slug: "psycholog-online-wieczorem",
+    metaTitle: "Psycholog online wieczorem",
+    metaDescription:
+      "Konsultacje psychologiczne online w godzinach popołudniowych i wieczornych dla osób, które potrzebują spotkania po pracy lub obowiązkach.",
+    eyebrow: "Terminy popołudniowe",
+    title: "Psycholog online wieczorem, po pracy lub po obowiązkach",
+    lead: [
+      "Nie każda osoba może umówić konsultację w środku dnia. Dla części osób łatwiej zadbać o rozmowę wtedy, gdy praca, opieka nad bliskimi albo inne obowiązki są już za nimi.",
+      "W systemie rezerwacji można sprawdzić aktualne wolne godziny online i wybrać termin, który nie wymaga dojazdu ani organizowania wizyty stacjonarnej.",
+    ],
+    quickFacts: ["online", "po pracy", "bez dojazdu", "aktualne terminy"],
+    sections: [
+      {
+        title: "Dla kogo taka forma może być wygodna",
+        body: [
+          "Konsultacja online wieczorem może pasować osobom, które w ciągu dnia mają ograniczoną elastyczność, mieszkają poza dużym miastem albo potrzebują rozmowy z domu.",
+        ],
+        bullets: [
+          "pracujesz w stałych godzinach",
+          "łatwiej Ci rozmawiać po zakończeniu obowiązków",
+          "nie chcesz tracić czasu na dojazd",
+          "jesteś poza Polską i szukasz wsparcia po polsku",
+        ],
+      },
+      {
+        title: "Jak sprawdzić najbliższe terminy",
+        body: [
+          "Aktualna dostępność jest pobierana z kalendarza i systemu rezerwacji. Jeśli konkretnej godziny nie widać, może być już zajęta, zablokowana albo poza ustawionym grafikiem.",
+        ],
+      },
+      {
+        title: "O czym pamiętać przed spotkaniem",
+        body: [
+          "Warto wybrać miejsce, w którym można rozmawiać swobodnie i poufnie. Dobrze zostawić sobie kilka minut po konsultacji, zamiast wracać natychmiast do kolejnych zadań.",
+        ],
+      },
+    ],
+    goodFit: [
+      "szukasz konsultacji online poza środkiem dnia",
+      "chcesz uniknąć dojazdu do gabinetu",
+      "potrzebujesz rozmowy po polsku",
+      "wolisz sprawdzić terminy samodzielnie online",
+    ],
+    faq: [
+      {
+        question: "Czy wieczorne terminy są zawsze dostępne?",
+        answer:
+          "Nie zawsze. Dostępność zależy od aktualnego grafiku i rezerwacji w kalendarzu, dlatego najlepiej sprawdzić ją w systemie rezerwacji.",
+      },
+      {
+        question: "Czy konsultacja wieczorem różni się od dziennej?",
+        answer:
+          "Zakres rozmowy jest taki sam. Różni się tylko godzina spotkania i to, że dla wielu osób wieczór jest organizacyjnie łatwiejszy.",
+      },
+      {
+        question: "Czy mogę umówić spotkanie z zagranicy?",
+        answer:
+          "Tak, konsultacje odbywają się online po polsku. Warto tylko uwzględnić różnicę czasu względem strefy Europe/Warsaw.",
+      },
+    ],
+    relatedLinks: [
+      { href: "/rezerwacja", label: "Aktualne terminy" },
+      { href: "/polacy-za-granica", label: "Pomoc online dla Polaków za granicą" },
+      { href: "/jak-to-dziala", label: "Jak działa konsultacja online" },
+    ],
+  },
 ] satisfies AiLandingPage[];
 
 export type AiLandingPageSlug = (typeof aiLandingPages)[number]["slug"];

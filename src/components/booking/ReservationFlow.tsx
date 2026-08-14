@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { CalendarDays, Check, CreditCard, RefreshCw, UserRound } from "lucide-react";
 import { BOOKING_SETTINGS } from "@/lib/booking-settings";
 import { trackEvent } from "@/lib/analytics";
@@ -27,6 +27,13 @@ type AvailabilityResponse = {
     priceValue: number;
     currency: string;
     holdMinutes: number;
+    minLeadMinutes: number;
+    maxAdvanceDays: number;
+    workingDays: number[];
+    workingHours: {
+      start: string;
+      end: string;
+    };
   };
   days: AvailabilityDay[];
 };
@@ -45,6 +52,9 @@ const emptyDetails: ClientDetails = {
   phone: "",
 };
 
+const checkoutCancelledNotice =
+  "Płatność została anulowana. Jeśli termin był chwilowo zablokowany, właśnie go zwalniamy.";
+
 function getCookie(name: string) {
   if (typeof document === "undefined") return "";
   return document.cookie
@@ -61,7 +71,7 @@ function hasMarketingConsent() {
   return window.localStorage.getItem("cookie-consent") === "accepted";
 }
 
-function formatSummaryDate(startIso: string) {
+function formatSummaryDate(startIso: string, timezone: string) {
   return new Intl.DateTimeFormat("pl-PL", {
     weekday: "long",
     day: "numeric",
@@ -69,7 +79,7 @@ function formatSummaryDate(startIso: string) {
     year: "numeric",
     hour: "2-digit",
     minute: "2-digit",
-    timeZone: BOOKING_SETTINGS.timezone,
+    timeZone: timezone,
   }).format(new Date(startIso));
 }
 
@@ -105,6 +115,12 @@ export default function ReservationFlow() {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [notice] = useState(() => {
+    if (typeof window === "undefined") return "";
+    return new URLSearchParams(window.location.search).get("status") === "cancelled"
+      ? checkoutCancelledNotice
+      : "";
+  });
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedStart, setSelectedStart] = useState("");
   const [details, setDetails] = useState<ClientDetails>(emptyDetails);
@@ -120,7 +136,7 @@ export default function ReservationFlow() {
   const detailsComplete = Boolean(details.firstName.trim() && details.lastName.trim() && details.email.trim());
   const currentStep = selectedSlot && detailsComplete ? 4 : selectedSlot ? 3 : selectedDate ? 2 : 1;
 
-  const fetchAvailability = async () => {
+  const fetchAvailability = useCallback(async () => {
     setLoading(true);
     setError("");
 
@@ -142,7 +158,7 @@ export default function ReservationFlow() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     trackEvent("rozpoczecie_rezerwacji", {
@@ -154,7 +170,33 @@ export default function ReservationFlow() {
     }, 0);
 
     return () => window.clearTimeout(timeout);
-  }, []);
+  }, [fetchAvailability]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("status") !== "cancelled") return;
+
+    const reservationId = params.get("reservation_id") ?? "";
+
+    params.delete("status");
+    params.delete("reservation_id");
+    const query = params.toString();
+    window.history.replaceState(
+      null,
+      "",
+      `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`,
+    );
+
+    if (!reservationId) return;
+
+    void fetch("/api/booking/cancel", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ reservation_id: reservationId }),
+    }).finally(() => {
+      void fetchAvailability();
+    });
+  }, [fetchAvailability]);
 
   const handleDateSelect = (date: string) => {
     setSelectedDate(date);
@@ -189,10 +231,10 @@ export default function ReservationFlow() {
 
     setSubmitting(true);
     trackEvent("rozpoczecie_checkoutu", {
-      currency: BOOKING_SETTINGS.currency,
+      currency: availability?.config.currency ?? BOOKING_SETTINGS.currency,
       event_category: "booking",
       event_label: selectedSlot.start,
-      value: BOOKING_SETTINGS.priceValue,
+      value: availability?.config.priceValue ?? BOOKING_SETTINGS.priceValue,
     });
 
     try {
@@ -370,21 +412,34 @@ export default function ReservationFlow() {
                 <div className="mt-5 grid gap-3 text-sm">
                   <div className="flex items-center gap-3">
                     <CalendarDays size={18} strokeWidth={1.8} aria-hidden="true" />
-                    <span>{selectedSlot ? formatSummaryDate(selectedSlot.start) : "Wybierz termin"}</span>
+                    <span>
+                      {selectedSlot
+                        ? formatSummaryDate(
+                            selectedSlot.start,
+                            availability?.config.timezone ?? BOOKING_SETTINGS.timezone,
+                          )
+                        : "Wybierz termin"}
+                    </span>
                   </div>
                   <div className="flex items-center gap-3">
                     <UserRound size={18} strokeWidth={1.8} aria-hidden="true" />
-                    <span>{BOOKING_SETTINGS.durationMinutes} minut online</span>
+                    <span>{availability?.config.durationMinutes ?? BOOKING_SETTINGS.durationMinutes} minut online</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CreditCard size={18} strokeWidth={1.8} aria-hidden="true" />
-                    <span>{BOOKING_SETTINGS.priceLabel}</span>
+                    <span>{availability?.config.priceLabel ?? BOOKING_SETTINGS.priceLabel}</span>
                   </div>
                 </div>
 
                 {error && (
                   <p className="mt-5 rounded-2xl bg-white/10 p-4 text-sm leading-relaxed text-white">
                     {error}
+                  </p>
+                )}
+
+                {notice && !error && (
+                  <p className="mt-5 rounded-2xl bg-white/10 p-4 text-sm leading-relaxed text-white">
+                    {notice}
                   </p>
                 )}
 
@@ -396,6 +451,21 @@ export default function ReservationFlow() {
                   <CreditCard size={18} strokeWidth={1.8} aria-hidden="true" />
                   <span>{submitting ? "Przekierowujemy do płatności..." : "Przejdź do płatności"}</span>
                 </button>
+
+                <p className="mt-4 text-xs leading-relaxed text-white/72">
+                  Termin blokuje się na czas płatności. Przechodząc dalej, akceptujesz{" "}
+                  <a href="/regulamin" className="font-semibold text-white underline-offset-4 hover:underline">
+                    regulamin
+                  </a>{" "}
+                  i{" "}
+                  <a
+                    href="/polityka-prywatnosci"
+                    className="font-semibold text-white underline-offset-4 hover:underline"
+                  >
+                    politykę prywatności
+                  </a>
+                  .
+                </p>
               </div>
             </form>
           </div>

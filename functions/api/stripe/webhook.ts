@@ -4,7 +4,9 @@ import {
   claimStripeWebhookEvent,
   getActiveOverlap,
   getReservationById,
+  getReservationOverride,
   getReservationByStripeSession,
+  getScheduleSettings,
   markCalendarCreated,
   markCalendarFailed,
   markMetaCapiSent,
@@ -56,6 +58,26 @@ async function handleCheckoutExpired(
   return reservation?.id ?? null;
 }
 
+async function handleCheckoutFailed(
+  db: ReturnType<typeof requireDb>,
+  session: StripeCheckoutSession,
+  nowIso: string,
+) {
+  const reservation = await getReservationForSession(db, session);
+
+  if (reservation?.status === "pending_checkout") {
+    await markReservationStatus(
+      db,
+      reservation.id,
+      "checkout_failed",
+      nowIso,
+      "Stripe oznaczył płatność jako nieudaną.",
+    );
+  }
+
+  return reservation?.id ?? null;
+}
+
 async function scheduleMetaPurchase(
   context: FunctionContext,
   reservation: ReservationRow,
@@ -99,10 +121,22 @@ async function handleCheckoutCompleted(
     return reservation.id;
   }
 
+  const override = await getReservationOverride(db, reservation.id);
+  if (override) {
+    await markReservationPaidConflict(
+      db,
+      reservation.id,
+      `Płatność Stripe ${event.id} dotarła po ręcznej zmianie rezerwacji (${override.action}).`,
+      nowIso,
+    );
+    return reservation.id;
+  }
+
+  const settings = await getScheduleSettings(db);
   const activeOverlap = await getActiveOverlap(
     db,
     reservation.slot_start,
-    getBlockedEndIso(reservation.slot_end),
+    getBlockedEndIso(reservation.slot_end, settings),
     nowIso,
     reservation.id,
   );
@@ -190,10 +224,15 @@ export async function onRequestPost(context: FunctionContext) {
       return jsonResponse({ received: true, ignored: true });
     }
 
-    if (event.type === "checkout.session.completed") {
+    if (
+      event.type === "checkout.session.completed" ||
+      event.type === "checkout.session.async_payment_succeeded"
+    ) {
       reservationId = await handleCheckoutCompleted(context, event, session, nowIso);
     } else if (event.type === "checkout.session.expired") {
       reservationId = await handleCheckoutExpired(db, session, nowIso);
+    } else if (event.type === "checkout.session.async_payment_failed") {
+      reservationId = await handleCheckoutFailed(db, session, nowIso);
     }
 
     await markStripeWebhookProcessed(db, event.id, reservationId, new Date().toISOString());
