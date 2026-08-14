@@ -15,11 +15,13 @@ export default function CookieBanner() {
 
   const accept = () => {
     localStorage.setItem('cookie-consent', 'accepted')
+    window.dispatchEvent(new Event('cookie-consent-updated'))
     setVisible(false)
   }
 
   const reject = () => {
     localStorage.setItem('cookie-consent', 'rejected')
+    window.dispatchEvent(new Event('cookie-consent-updated'))
     setVisible(false)
   }
 

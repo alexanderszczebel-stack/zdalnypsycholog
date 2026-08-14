@@ -13,7 +13,7 @@ export default function PolitykaCookiesPage() {
         Polityka Cookies
       </h1>
       <p className="text-sm mb-10" style={{ color: "#9A8E85" }}>
-        Ostatnia aktualizacja: Maj 2026
+        Ostatnia aktualizacja: Sierpień 2026
       </p>
       <div className="prose prose-slate max-w-none space-y-6" style={{ color: "#2D2926" }}>
 
@@ -28,7 +28,7 @@ export default function PolitykaCookiesPage() {
           <li><code>cookie-consent</code>, zapamiętuje Twoją decyzję dotyczącą zgody na cookies (czas przechowywania: 12 miesięcy).</li>
         </ul>
 
-        <p className="mt-4"><strong>Cookies analityczne</strong>, służą do analizy korzystania z serwisu. Stosowane wyłącznie za Twoją zgodą.</p>
+        <p className="mt-4"><strong>Cookies analityczne i marketingowe</strong>, służą do analizy korzystania z serwisu oraz pomiaru skuteczności reklam. Stosowane wyłącznie za Twoją zgodą.</p>
 
         <p className="mt-4"><strong>Cookies funkcjonalne</strong>, zapamiętują Twoje preferencje, np. język interfejsu.</p>
 
@@ -36,6 +36,9 @@ export default function PolitykaCookiesPage() {
         <p>Serwis korzysta z następujących usług zewnętrznych, które mogą ustawiać własne cookies:</p>
         <ul className="list-disc pl-6 space-y-1">
           <li><strong>Web3Forms</strong>, obsługa formularza kontaktowego. Nie przechowuje plików cookies.</li>
+          <li><strong>Google Analytics</strong>, analiza ruchu w serwisie.</li>
+          <li><strong>Meta Pixel</strong>, pomiar zdarzeń reklamowych, jeśli usługa zostanie włączona i wyrazisz zgodę.</li>
+          <li><strong>Stripe</strong>, bezpieczna obsługa płatności online.</li>
         </ul>
 
         <h2 className="text-xl font-bold mt-8 mb-3" style={{ color: "#1F314D" }}>4. Jak zarządzać plikami cookies?</h2>

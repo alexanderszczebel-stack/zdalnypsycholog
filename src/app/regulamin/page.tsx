@@ -13,7 +13,7 @@ export default function RegulaminPage() {
         Regulamin platformy zdalnypsycholog.pl
       </h1>
       <p className="text-sm mb-10" style={{ color: "#9A8E85" }}>
-        Ostatnia aktualizacja: Maj 2026
+        Ostatnia aktualizacja: Sierpień 2026
       </p>
       <div className="prose prose-slate max-w-none space-y-6" style={{ color: "#2D2926" }}>
 
@@ -31,7 +31,7 @@ export default function RegulaminPage() {
         <p>Usługi świadczone są przez Mikołaja Szczebla, psychologa z 8-letnim doświadczeniem.</p>
 
         <h2 className="text-xl font-bold mt-8 mb-3" style={{ color: "#1F314D" }}>3. Rezerwacja i płatność</h2>
-        <p>Termin konsultacji wybierany jest online w dostępnym systemie rezerwacyjnym. Płatność za konsultację wymagana jest podczas rezerwacji, a termin zostaje potwierdzony po jej dokonaniu. Aktualne ceny dostępne są na stronie Cennik. Akceptowane metody płatności zależą od konfiguracji operatora płatności w systemie rezerwacyjnym.</p>
+        <p>Termin konsultacji wybierany jest online w systemie rezerwacji serwisu. Płatność za konsultację wymagana jest podczas rezerwacji i odbywa się przez Stripe Checkout. Termin zostaje potwierdzony dopiero po skutecznym zaksięgowaniu płatności i utworzeniu wydarzenia kalendarzowego. Aktualne ceny dostępne są na stronie Cennik.</p>
 
         <h2 className="text-xl font-bold mt-8 mb-3" style={{ color: "#1F314D" }}>4. Odwołanie i zmiana terminu sesji</h2>
         <p>Odwołanie sesji bez opłat możliwe jest do 24 godzin przed planowanym terminem. Odwołanie w czasie krótszym niż 24 godziny wiąże się z pełną opłatą za sesję. Zmiana terminu możliwa jest na takich samych zasadach jak odwołanie.</p>

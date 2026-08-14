@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, CalendarDays, CreditCard, MailCheck, ShieldCheck } from "lucide-react";
-import CalendlyBooking from "@/components/booking/CalendlyBooking";
+import ReservationFlow from "@/components/booking/ReservationFlow";
 import { canonicalUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const bookingHighlights = [
-  { icon: CalendarDays, label: "Wybór terminu", text: "sprawdzasz dostępne godziny w Calendly" },
+  { icon: CalendarDays, label: "Wybór terminu", text: "sprawdzasz wolne godziny online" },
   { icon: CreditCard, label: "Płatność online", text: "opłacasz konsultację przez Stripe" },
   { icon: MailCheck, label: "Potwierdzenie", text: "otrzymujesz informacje organizacyjne e-mailem" },
 ];
@@ -40,8 +40,8 @@ export default function RezerwacjaPage() {
               otrzymasz potwierdzenie wizyty.
             </p>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#6F6860] md:text-base">
-              Calendly prowadzi przez wybór terminu, dane rezerwacji i płatność Stripe w jednym
-              uporządkowanym procesie.
+              System rezerwacji prowadzi przez wybór terminu, dane organizacyjne i płatność
+              Stripe w jednym uporządkowanym procesie.
             </p>
           </div>
 
@@ -83,7 +83,7 @@ export default function RezerwacjaPage() {
         </div>
       </section>
 
-      <CalendlyBooking />
+      <ReservationFlow />
     </div>
   );
 }

@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "pnpm build && wrangler pages deploy out --project-name=zdalnypsycholog"
+    "deploy": "pnpm build && wrangler pages deploy out --project-name=zdalnypsycholog",
+    "db:migrate:local": "wrangler d1 migrations apply zdalnypsycholog-bookings --local",
+    "db:migrate:remote": "wrangler d1 migrations apply zdalnypsycholog-bookings --remote",
+    "pages:dev": "pnpm build && wrangler pages dev out"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

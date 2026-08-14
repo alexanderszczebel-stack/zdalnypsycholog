@@ -5,8 +5,9 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ConditionalNavbar, ConditionalFooter } from "@/components/layout/ConditionalNav";
 import CookieBanner from "@/components/ui/CookieBanner";
+import MetaPixel from "@/components/analytics/MetaPixel";
 import { SITE_URL, canonicalUrl } from "@/lib/site";
-import { CALENDLY_URL, CONTACT_EMAIL, PHONE_NUMBER, WHATSAPP_URL } from "@/lib/contact";
+import { CONTACT_EMAIL, PHONE_NUMBER, WHATSAPP_URL } from "@/lib/contact";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -73,7 +74,7 @@ const jsonLd = {
   url: SITE_URL,
   email: CONTACT_EMAIL,
   telephone: PHONE_NUMBER,
-  sameAs: [WHATSAPP_URL, CALENDLY_URL].filter(Boolean),
+  sameAs: [WHATSAPP_URL].filter(Boolean),
   areaServed: { "@type": "Country", name: "Poland" },
 };
 
@@ -102,6 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ConditionalNavbar><Navbar /></ConditionalNavbar>
         <main className="pb-[80px] md:pb-0">{children}</main>
         <ConditionalFooter><Footer /></ConditionalFooter>
+        <MetaPixel />
         <CookieBanner />
       </body>
     </html>

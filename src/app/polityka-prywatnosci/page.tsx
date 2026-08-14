@@ -13,7 +13,7 @@ export default function PolitykaPrywatnosciPage() {
         Polityka Prywatności
       </h1>
       <p className="text-sm mb-10" style={{ color: "#9A8E85" }}>
-        Ostatnia aktualizacja: Maj 2026
+        Ostatnia aktualizacja: Sierpień 2026
       </p>
       <div className="prose prose-slate max-w-none space-y-6" style={{ color: "#2D2926" }}>
 
@@ -27,11 +27,13 @@ export default function PolitykaPrywatnosciPage() {
         <ul className="list-disc pl-6 space-y-1">
           <li>odpowiedź na zapytania przesłane przez formularz kontaktowy, podstawa: art. 6 ust. 1 lit. a RODO (zgoda),</li>
           <li>umówienie i realizacja konsultacji psychologicznych, podstawa: art. 6 ust. 1 lit. b RODO (wykonanie umowy),</li>
+          <li>obsługa płatności online i potwierdzenia rezerwacji, podstawa: art. 6 ust. 1 lit. b RODO (wykonanie umowy),</li>
+          <li>pomiar skuteczności działań marketingowych wyłącznie po wyrażeniu zgody na cookies/analitykę, podstawa: art. 6 ust. 1 lit. a RODO (zgoda),</li>
           <li>wypełnienie obowiązków prawnych, podstawa: art. 6 ust. 1 lit. c RODO.</li>
         </ul>
 
         <h2 className="text-xl font-bold mt-8 mb-3" style={{ color: "#1F314D" }}>3. Zakres zbieranych danych</h2>
-        <p>Zbieramy wyłącznie dane niezbędne do realizacji usługi: imię, adres e-mail, treść wiadomości oraz dane podane dobrowolnie podczas konsultacji.</p>
+        <p>Zbieramy wyłącznie dane niezbędne do realizacji usługi: imię, nazwisko, adres e-mail, opcjonalny numer telefonu, wybrany termin, informacje o statusie płatności oraz treść wiadomości przesłanej przez formularz kontaktowy. W formularzu rezerwacji nie prosimy o opis stanu zdrowia ani szczegóły problemu.</p>
 
         <h2 className="text-xl font-bold mt-8 mb-3" style={{ color: "#1F314D" }}>4. Okres przechowywania danych</h2>
         <p>Dane przechowywane są przez okres niezbędny do realizacji celu, dla którego zostały zebrane, a po jego upływie przez czas wymagany przepisami prawa (maksymalnie 5 lat).</p>
@@ -53,6 +55,10 @@ export default function PolitykaPrywatnosciPage() {
         <p>Dane nie są sprzedawane ani udostępniane podmiotom trzecim, z wyjątkiem:</p>
         <ul className="list-disc pl-6 space-y-1">
           <li>dostawcy usługi formularza kontaktowego (Web3Forms),</li>
+          <li>operatora płatności online (Stripe),</li>
+          <li>dostawcy kalendarza i spotkań online (Google Calendar / Google Meet),</li>
+          <li>dostawcy hostingu i bazy rezerwacji (Cloudflare),</li>
+          <li>Meta Platforms Ireland Ltd. w zakresie pomiaru konwersji, jeśli wyrazisz zgodę na cookies/analitykę,</li>
           <li>sytuacji wymaganych przez przepisy prawa.</li>
         </ul>
 
