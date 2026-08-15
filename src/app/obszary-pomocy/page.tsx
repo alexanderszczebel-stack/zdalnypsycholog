@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, CheckCircle2 } from "lucide-react";
+import { ArrowRight, BookOpen, CheckCircle2, Compass } from "lucide-react";
 import BookingCTA from "@/components/booking/BookingCTA";
 import { helpAreas } from "@/data/helpAreas";
 import { getAiLandingPage } from "@/data/aiLandingPages";
@@ -13,8 +13,17 @@ export const metadata = {
 };
 
 const consultationGuides = [
+  getAiLandingPage("konsultacja-psychologiczna-online"),
   getAiLandingPage("psycholog-online-lek-i-napiecie"),
   getAiLandingPage("psycholog-online-stres-i-przeciazenie"),
+  getAiLandingPage("psycholog-online-relacje"),
+  getAiLandingPage("psycholog-online-obnizony-nastroj"),
+  getAiLandingPage("psycholog-online-adhd-koncentracja"),
+  getAiLandingPage("psycholog-online-samoocena"),
+  getAiLandingPage("psycholog-online-ataki-paniki"),
+  getAiLandingPage("cbt-online"),
+  getAiLandingPage("tsr-online"),
+  getAiLandingPage("czy-konsultacja-online-jest-dla-mnie"),
   getAiLandingPage("pierwsza-konsultacja-psychologiczna-online"),
 ];
 
@@ -55,6 +64,13 @@ export default function ObszaryPomocyPage() {
                 Artykuły nie zastępują konsultacji, ale pomagają nazwać problem i przygotować
                 pierwszą rozmowę.
               </p>
+              <Link
+                href="/dobierz-sciezke"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#1F314D] transition-colors hover:text-[#BC6C25]"
+              >
+                <Compass size={15} strokeWidth={1.8} aria-hidden="true" />
+                Dobierz pierwszy krok
+              </Link>
             </div>
           </div>
         </div>
@@ -148,6 +164,9 @@ export default function ObszaryPomocyPage() {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
               <BookingCTA text="Wybierz termin konsultacji" className="btn-primary" />
+              <Link href="/dobierz-sciezke" className="btn-secondary">
+                Dobierz pierwszy krok
+              </Link>
               <Link href="/kontakt#formularz" className="btn-secondary">
                 Mam pytanie organizacyjne
               </Link>

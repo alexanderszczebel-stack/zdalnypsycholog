@@ -493,6 +493,602 @@ export const aiLandingPages = [
       { href: "/jak-to-dziala", label: "Jak działa konsultacja online" },
     ],
   },
+  {
+    slug: "psycholog-online-relacje",
+    metaTitle: "Psycholog online przy trudnościach w relacjach",
+    metaDescription:
+      "Konsultacja psychologiczna online, gdy konflikty, granice, samotność albo powtarzające się schematy utrudniają relacje.",
+    eyebrow: "Relacje",
+    title: "Psycholog online przy trudnościach w relacjach, granicach i bliskości",
+    lead: [
+      "Trudności w relacjach często nie zaczynają się od jednego wydarzenia. Czasem narastają przez powtarzające się konflikty, wycofanie, poczucie niezrozumienia albo trudność w stawianiu granic.",
+      "Konsultacja psychologiczna online może pomóc nazwać schemat, zobaczyć własne reakcje i ustalić pierwszy realny krok w kontakcie z innymi.",
+    ],
+    quickFacts: ["relacje", "granice", "komunikacja", "schematy"],
+    sections: [
+      {
+        title: "Kiedy warto porozmawiać",
+        body: [
+          "Rozmowa może być pomocna, gdy relacje zaczynają kosztować coraz więcej napięcia, a dotychczasowe sposoby rozmowy nie przynoszą zmiany.",
+        ],
+        bullets: [
+          "często wracają podobne konflikty",
+          "trudno powiedzieć wprost, czego potrzebujesz",
+          "łatwo wycofujesz się albo reagujesz zbyt mocno",
+          "granice są przekraczane lub trudne do utrzymania",
+        ],
+      },
+      {
+        title: "Co omawiamy na konsultacji",
+        body: [
+          "Pierwsza konsultacja pomaga rozpoznać sytuacje, w których pojawia się napięcie, oraz zobaczyć, jakie przekonania, emocje i zachowania utrwalają schemat.",
+        ],
+      },
+      {
+        title: "Bez szukania winnego",
+        body: [
+          "Celem rozmowy nie jest wskazanie, kto ma rację, tylko spokojne zrozumienie dynamiki i znalezienie kroku, który może poprawić jasność, granice albo sposób komunikacji.",
+        ],
+      },
+    ],
+    goodFit: [
+      "powtarzają się konflikty lub ciche wycofanie",
+      "chcesz lepiej rozumieć swoje reakcje w relacjach",
+      "trudno Ci stawiać granice bez poczucia winy",
+      "potrzebujesz spokojnie nazwać, co dzieje się w kontakcie z innymi",
+    ],
+    faq: [
+      {
+        question: "Czy mogę przyjść samodzielnie z tematem relacji?",
+        answer:
+          "Tak. Konsultacja indywidualna może dotyczyć relacji, komunikacji, granic i powtarzających się schematów, nawet jeśli druga osoba nie bierze udziału w spotkaniu.",
+      },
+      {
+        question: "Czy to jest terapia par?",
+        answer:
+          "Ta strona dotyczy przede wszystkim indywidualnej konsultacji online. Jeśli potrzebna jest konsultacja dla par, warto omówić to organizacyjnie przed rezerwacją.",
+      },
+      {
+        question: "Czy muszę wiedzieć, jaki jest problem?",
+        answer:
+          "Nie. Wystarczy opisać sytuacje, które wracają lub budzą napięcie. Pierwsza konsultacja pomaga doprecyzować temat.",
+      },
+    ],
+    relatedLinks: [
+      { href: "/blog/relacje", label: "Artykuł o relacjach" },
+      { href: "/tsr-online", label: "TSR online" },
+      { href: "/pierwsza-konsultacja-psychologiczna-online", label: "Pierwsza konsultacja" },
+    ],
+  },
+  {
+    slug: "psycholog-online-obnizony-nastroj",
+    metaTitle: "Psycholog online przy obniżonym nastroju",
+    metaDescription:
+      "Konsultacja psychologiczna online, gdy spada energia, motywacja, poczucie sensu albo codzienne sprawy wymagają coraz większego wysiłku.",
+    eyebrow: "Obniżony nastrój",
+    title: "Psycholog online przy obniżonym nastroju i spadku energii",
+    lead: [
+      "Obniżony nastrój może stopniowo wpływać na pracę, relacje, sen, motywację i sposób myślenia o sobie.",
+      "Pierwsza konsultacja online może pomóc bezpiecznie nazwać to, co się dzieje, bez pochopnego diagnozowania i bez presji na gotowe rozwiązania.",
+    ],
+    quickFacts: ["nastrój", "energia", "motywacja", "pierwsza rozmowa"],
+    sections: [
+      {
+        title: "Sygnały, które warto potraktować poważnie",
+        body: [
+          "Warto porozmawiać, gdy spadek energii nie mija po odpoczynku albo zaczyna zmieniać codzienne funkcjonowanie.",
+        ],
+        bullets: [
+          "trudniej rozpocząć lub kończyć codzienne sprawy",
+          "rzeczy, które kiedyś dawały satysfakcję, tracą znaczenie",
+          "pojawia się wycofanie z kontaktów",
+          "rośnie samokrytyka albo poczucie bezradności",
+        ],
+      },
+      {
+        title: "Jak może pomóc konsultacja",
+        body: [
+          "Rozmowa pomaga oddzielić objawy, kontekst życiowy, przeciążenie i możliwe czynniki podtrzymujące gorszy nastrój.",
+        ],
+      },
+      {
+        title: "Kiedy potrzebny jest inny rodzaj pomocy",
+        body: [
+          "Jeśli pojawia się ryzyko zrobienia sobie krzywdy, myśli samobójcze lub bezpośrednie zagrożenie, potrzebna jest pilna pomoc kryzysowa lub medyczna, a nie oczekiwanie na konsultację online.",
+        ],
+      },
+    ],
+    goodFit: [
+      "od dłuższego czasu masz mniej energii",
+      "trudno Ci nazwać, czy to zmęczenie, smutek czy przeciążenie",
+      "chcesz uporządkować sytuację bez oceniania",
+      "potrzebujesz ustalić, jaki rodzaj dalszej pomocy ma sens",
+    ],
+    faq: [
+      {
+        question: "Czy obniżony nastrój musi oznaczać depresję?",
+        answer:
+          "Nie zawsze. Obniżony nastrój może mieć różne przyczyny. Konsultacja pomaga uporządkować obraz sytuacji i ustalić, czy potrzebna jest dalsza diagnostyka lub inna forma pomocy.",
+      },
+      {
+        question: "Czy mogę umówić konsultację, jeśli nie mam siły mówić dużo?",
+        answer:
+          "Tak. Nie trzeba mieć gotowej, długiej historii. Rozmowa może zacząć się od kilku zdań o tym, co ostatnio jest najtrudniejsze.",
+      },
+      {
+        question: "Czy konsultacja online wystarczy przy silnych objawach?",
+        answer:
+          "To zależy od sytuacji. Przy silnych, nagłych lub zagrażających objawach może być potrzebna pilna pomoc medyczna lub psychiatryczna.",
+      },
+    ],
+    relatedLinks: [
+      { href: "/blog/obnizony-nastroj", label: "Artykuł o obniżonym nastroju" },
+      { href: "/psycholog-online-stres-i-przeciazenie", label: "Stres i przeciążenie" },
+      { href: "/konsultacja-psychologiczna-online", label: "Konsultacja online" },
+    ],
+  },
+  {
+    slug: "psycholog-online-adhd-koncentracja",
+    metaTitle: "Psycholog online ADHD i trudności z koncentracją",
+    metaDescription:
+      "Konsultacja psychologiczna online przy trudnościach z koncentracją, organizacją, planowaniem, chaosem i podejrzeniu ADHD u dorosłych.",
+    eyebrow: "ADHD i koncentracja",
+    title: "Psycholog online przy ADHD, koncentracji i trudnościach z organizacją",
+    lead: [
+      "Trudności z koncentracją, chaosem, planowaniem albo domykaniem spraw mogą wpływać na pracę, relacje i samoocenę.",
+      "Konsultacja online nie zastępuje pełnej diagnostyki ADHD, ale może pomóc uporządkować objawy, codzienne trudności i dalsze możliwe kroki.",
+    ],
+    quickFacts: ["koncentracja", "organizacja", "ADHD", "dalszy krok"],
+    sections: [
+      {
+        title: "Z czym można przyjść",
+        body: [
+          "Warto porozmawiać, gdy trudności z uwagą, organizacją lub impulsywnością zaczynają realnie przeszkadzać w codzienności.",
+        ],
+        bullets: [
+          "odkładanie zadań mimo ważnych konsekwencji",
+          "chaos w planowaniu i priorytetach",
+          "poczucie, że stale gasisz pożary",
+          "samokrytyka związana z niedomykaniem spraw",
+        ],
+      },
+      {
+        title: "Co daje pierwsza konsultacja",
+        body: [
+          "Pierwsza rozmowa pomaga zebrać najważniejsze informacje, odróżnić trudności organizacyjne od przeciążenia i ustalić, czy warto szukać dalszej diagnostyki.",
+        ],
+      },
+      {
+        title: "Bez etykietowania",
+        body: [
+          "Nie trzeba przychodzić z diagnozą. Można przyjść z opisem konkretnych sytuacji: pracy, nauki, relacji, obowiązków, snu i napięcia.",
+        ],
+      },
+    ],
+    goodFit: [
+      "trudno Ci utrzymać uwagę lub plan",
+      "masz poczucie chaosu mimo dużego wysiłku",
+      "podejrzewasz ADHD i chcesz uporządkować dalsze kroki",
+      "chcesz pracować nad codziennymi strategiami bez obiecywania cudów",
+    ],
+    faq: [
+      {
+        question: "Czy konsultacja online jest diagnozą ADHD?",
+        answer:
+          "Nie. Konsultacja może pomóc uporządkować trudności i wskazać możliwe dalsze kroki, ale pełna diagnoza ADHD wymaga odpowiedniej procedury diagnostycznej.",
+      },
+      {
+        question: "Czy mogę przyjść bez diagnozy?",
+        answer:
+          "Tak. Możesz opisać konkretne trudności z koncentracją, planowaniem, impulsywnością lub organizacją.",
+      },
+      {
+        question: "Czy CBT może pomóc przy organizacji?",
+        answer:
+          "Perspektywa CBT może pomagać analizować myśli, emocje i zachowania utrudniające działanie. Zakres pracy ustala się indywidualnie.",
+      },
+    ],
+    relatedLinks: [
+      { href: "/blog/adhd-u-doroslych", label: "Artykuł o ADHD u dorosłych" },
+      { href: "/cbt-online", label: "CBT online" },
+      { href: "/psycholog-online-stres-i-przeciazenie", label: "Stres i przeciążenie" },
+    ],
+  },
+  {
+    slug: "psycholog-online-samoocena",
+    metaTitle: "Psycholog online przy niskiej samoocenie",
+    metaDescription:
+      "Konsultacja psychologiczna online, gdy samokrytyka, porównywanie się lub niskie poczucie wartości utrudniają decyzje, relacje i codzienne działanie.",
+    eyebrow: "Samoocena",
+    title: "Psycholog online przy niskiej samoocenie i silnej samokrytyce",
+    lead: [
+      "Niska samoocena często nie wygląda jak jeden problem. Może pojawiać się w decyzjach, relacjach, pracy, unikaniu działania albo ciągłym porównywaniu się z innymi.",
+      "Konsultacja online może pomóc zobaczyć, jak działa wewnętrzny krytyk i jakie sytuacje najmocniej uruchamiają poczucie niewystarczalności.",
+    ],
+    quickFacts: ["samoocena", "samokrytyka", "poczucie wartości", "relacje"],
+    sections: [
+      {
+        title: "Kiedy warto przyjrzeć się samoocenie",
+        body: [
+          "Warto porozmawiać, gdy sposób myślenia o sobie regularnie ogranicza działanie, relacje albo poczucie spokoju.",
+        ],
+        bullets: [
+          "często porównujesz się z innymi",
+          "trudno Ci przyjmować dobre informacje o sobie",
+          "unikasz decyzji z obawy przed oceną",
+          "błędy długo wracają w myślach",
+        ],
+      },
+      {
+        title: "Co można uporządkować",
+        body: [
+          "Na konsultacji można zobaczyć, w jakich sytuacjach samokrytyka jest najsilniejsza, jakie przekonania ją podtrzymują i jaki pierwszy krok będzie możliwy.",
+        ],
+      },
+      {
+        title: "Bez prostych haseł",
+        body: [
+          "Praca nad samooceną nie polega na powtarzaniu sloganów. Chodzi o spokojne rozumienie mechanizmów i budowanie bardziej adekwatnego sposobu traktowania siebie.",
+        ],
+      },
+    ],
+    goodFit: [
+      "często myślisz o sobie surowiej niż o innych",
+      "lęk przed oceną zatrzymuje Cię przed działaniem",
+      "relacje uruchamiają poczucie bycia niewystarczającym",
+      "chcesz lepiej rozumieć samokrytyczne myśli",
+    ],
+    faq: [
+      {
+        question: "Czy niska samoocena jest wystarczającym powodem do konsultacji?",
+        answer:
+          "Tak. Jeśli samokrytyka wpływa na decyzje, relacje lub codzienne funkcjonowanie, może być ważnym tematem konsultacji.",
+      },
+      {
+        question: "Czy konsultacja polega na dawaniu porad?",
+        answer:
+          "Nie chodzi o gotowe rady, tylko o zrozumienie schematu, emocji i reakcji oraz ustalenie realnego pierwszego kroku.",
+      },
+      {
+        question: "Czy temat samooceny łączy się z relacjami?",
+        answer:
+          "Często tak. Sposób oceniania siebie może wpływać na granice, bliskość, konflikty i gotowość do mówienia o potrzebach.",
+      },
+    ],
+    relatedLinks: [
+      { href: "/blog/niska-samoocena", label: "Artykuł o samoocenie" },
+      { href: "/psycholog-online-relacje", label: "Relacje" },
+      { href: "/tsr-online", label: "TSR online" },
+    ],
+  },
+  {
+    slug: "konsultacja-psychologiczna-online",
+    metaTitle: "Konsultacja psychologiczna online",
+    metaDescription:
+      "Konsultacja psychologiczna online: 50 minut rozmowy, jasne zasady, płatność online i potwierdzenie terminu po rezerwacji.",
+    eyebrow: "Konsultacja online",
+    title: "Konsultacja psychologiczna online: pierwszy krok do uporządkowania sytuacji",
+    lead: [
+      "Konsultacja psychologiczna online to 50 minut rozmowy poświęconej aktualnej trudności, kontekstowi i możliwemu dalszemu krokowi.",
+      "Nie musisz mieć gotowej diagnozy. Możesz przyjść z poczuciem przeciążenia, lęku, trudności w relacjach albo z tematem, którego jeszcze nie umiesz nazwać.",
+    ],
+    quickFacts: ["50 minut", "250 zł", "online", "płatność przy rezerwacji"],
+    sections: [
+      {
+        title: "Dla kogo jest konsultacja",
+        body: [
+          "Konsultacja jest dla osób dorosłych, które chcą spokojnie porozmawiać z psychologiem, nazwać trudność i ustalić, co dalej.",
+        ],
+        bullets: [
+          "gdy trudno samodzielnie uporządkować sytuację",
+          "gdy objawy zaczynają wpływać na codzienność",
+          "gdy potrzebujesz profesjonalnej rozmowy bez oceniania",
+          "gdy chcesz sprawdzić, czy kontynuacja pracy ma sens",
+        ],
+      },
+      {
+        title: "Jak wygląda proces",
+        body: [
+          "Wybierasz termin online, podajesz dane organizacyjne, opłacasz konsultację przez Stripe i otrzymujesz potwierdzenie spotkania.",
+        ],
+      },
+      {
+        title: "Czego można się spodziewać",
+        body: [
+          "Rozmowa jest uporządkowana, ale dopasowana do sytuacji. Omawiamy trudność, dotychczasowe sposoby radzenia sobie, oczekiwania i możliwy kolejny krok.",
+        ],
+      },
+    ],
+    goodFit: [
+      "chcesz zacząć od jednej rozmowy",
+      "potrzebujesz nazwać problem i uporządkować objawy",
+      "wolisz spotkanie online bez dojazdu",
+      "chcesz znać cenę i proces przed rezerwacją",
+    ],
+    faq: [
+      {
+        question: "Ile kosztuje konsultacja psychologiczna online?",
+        answer: "Konsultacja indywidualna trwa 50 minut i kosztuje 250 zł.",
+      },
+      {
+        question: "Kiedy termin jest potwierdzony?",
+        answer:
+          "Termin zostaje potwierdzony po dokonaniu płatności podczas rezerwacji online.",
+      },
+      {
+        question: "Czy konsultacja online jest dla każdej sytuacji?",
+        answer:
+          "Nie. W sytuacji bezpośredniego zagrożenia życia lub zdrowia potrzebna jest pilna pomoc kryzysowa lub medyczna.",
+      },
+    ],
+    relatedLinks: [
+      { href: "/cennik", label: "Cennik" },
+      { href: "/jak-to-dziala", label: "Jak to działa" },
+      { href: "/dobierz-sciezke", label: "Dobierz pierwszy krok" },
+    ],
+  },
+  {
+    slug: "cbt-online",
+    metaTitle: "CBT online, konsultacja w podejściu poznawczo-behawioralnym",
+    metaDescription:
+      "CBT online jako uporządkowana perspektywa pracy z myślami, emocjami, reakcjami ciała i zachowaniami podczas konsultacji psychologicznej.",
+    eyebrow: "CBT online",
+    title: "CBT online: uporządkowana rozmowa o myślach, emocjach i zachowaniach",
+    lead: [
+      "Podejście poznawczo-behawioralne pomaga zobaczyć, jak myśli, emocje, reakcje ciała i zachowania wpływają na siebie nawzajem.",
+      "W konsultacji online perspektywa CBT może pomóc uporządkować lęk, stres, napięcie, przeciążenie albo trudności w codziennym działaniu.",
+    ],
+    quickFacts: ["CBT", "struktura", "mechanizmy", "online"],
+    sections: [
+      {
+        title: "Co oznacza perspektywa CBT",
+        body: [
+          "CBT nie polega na pozytywnym myśleniu. Chodzi o sprawdzanie, jakie interpretacje, emocje i zachowania tworzą błędne koła albo podtrzymują trudność.",
+        ],
+      },
+      {
+        title: "Kiedy może pasować",
+        body: [
+          "CBT może być dobrym punktem odniesienia, gdy chcesz pracować bardziej konkretnie, rozumieć mechanizmy i szukać możliwych zmian w codziennych reakcjach.",
+        ],
+        bullets: [
+          "lęk i zamartwianie się",
+          "napięcie i stres",
+          "unikanie trudnych sytuacji",
+          "samokrytyczne myśli",
+        ],
+      },
+      {
+        title: "Jak wygląda online",
+        body: [
+          "Forma online nadal pozwala prowadzić rozmowę w jasnej strukturze: temat, kontekst, mechanizm, możliwy eksperyment lub krok między spotkaniami.",
+        ],
+      },
+    ],
+    goodFit: [
+      "lubisz rozumieć, co podtrzymuje problem",
+      "potrzebujesz uporządkowanej rozmowy",
+      "chcesz pracować na konkretnych sytuacjach z codzienności",
+      "szukasz podejścia bez obietnic szybkich efektów",
+    ],
+    faq: [
+      {
+        question: "Czy CBT online działa tak samo jak stacjonarnie?",
+        answer:
+          "Forma kontaktu jest inna, ale wiele elementów CBT można omawiać online. Ważne są warunki do spokojnej i poufnej rozmowy.",
+      },
+      {
+        question: "Czy CBT jest tylko na lęk?",
+        answer:
+          "Nie. Perspektywa CBT bywa użyteczna w pracy z lękiem, stresem, nastrojem, samokrytyką i codziennymi schematami działania.",
+      },
+      {
+        question: "Czy dostanę gotowe zadania?",
+        answer:
+          "Zakres pracy ustala się indywidualnie. Czasem pomocne są obserwacje lub małe kroki między spotkaniami, ale nie są one celem samym w sobie.",
+      },
+    ],
+    relatedLinks: [
+      { href: "/konsultacja-cbt-tsr-online", label: "CBT i TSR" },
+      { href: "/psycholog-online-lek-i-napiecie", label: "Lęk i napięcie" },
+      { href: "/psycholog-online-adhd-koncentracja", label: "ADHD i koncentracja" },
+    ],
+  },
+  {
+    slug: "tsr-online",
+    metaTitle: "TSR online, konsultacja skoncentrowana na rozwiązaniach",
+    metaDescription:
+      "TSR online jako spokojna rozmowa o zasobach, wyjątkach od problemu i małych realnych krokach w konsultacji psychologicznej.",
+    eyebrow: "TSR online",
+    title: "TSR online: rozmowa o zasobach, wyjątkach i najbliższym kroku",
+    lead: [
+      "Terapia Skoncentrowana na Rozwiązaniach pomaga szukać tego, co już choć trochę działa, oraz małych kroków możliwych w konkretnym życiu.",
+      "W konsultacji online perspektywa TSR może być pomocna, gdy potrzebujesz mniej etykietowania, a więcej jasności, wpływu i praktycznego kierunku.",
+    ],
+    quickFacts: ["TSR", "zasoby", "małe kroki", "online"],
+    sections: [
+      {
+        title: "Na czym polega TSR",
+        body: [
+          "TSR nie ignoruje problemu. Pomaga jednak zobaczyć sytuacje, w których trudność jest choć trochę mniejsza, oraz zasoby, które można wzmacniać.",
+        ],
+      },
+      {
+        title: "Kiedy może pasować",
+        body: [
+          "TSR może być pomocne, gdy chcesz zacząć od konkretnego, możliwego kroku, a nie od wielomiesięcznego analizowania całej historii życia.",
+        ],
+        bullets: [
+          "poczucie utknięcia",
+          "trudności w relacjach",
+          "samoocena i sprawczość",
+          "przeciążenie i brak wpływu",
+        ],
+      },
+      {
+        title: "Co dzieje się na konsultacji",
+        body: [
+          "Rozmowa może obejmować oczekiwany kierunek zmiany, wyjątki od problemu, zasoby i małe działania, które da się sprawdzić po spotkaniu.",
+        ],
+      },
+    ],
+    goodFit: [
+      "chcesz zobaczyć, co może być pierwszym małym krokiem",
+      "nie chcesz być sprowadzany do etykiety problemu",
+      "potrzebujesz więcej poczucia wpływu",
+      "szukasz spokojnej rozmowy nastawionej na przyszłość",
+    ],
+    faq: [
+      {
+        question: "Czy TSR oznacza szybkie rozwiązanie problemu?",
+        answer:
+          "Nie. TSR koncentruje się na zasobach i kierunku zmiany, ale nie obiecuje natychmiastowych efektów.",
+      },
+      {
+        question: "Czy TSR nadaje się do rozmowy online?",
+        answer:
+          "Tak, jeśli masz warunki do spokojnego spotkania. Pytania, refleksja i planowanie kroków mogą odbywać się online.",
+      },
+      {
+        question: "Czy TSR można łączyć z CBT?",
+        answer:
+          "W konsultacji można korzystać z obu perspektyw, jeśli pasuje to do tematu i celu rozmowy.",
+      },
+    ],
+    relatedLinks: [
+      { href: "/konsultacja-cbt-tsr-online", label: "CBT i TSR" },
+      { href: "/psycholog-online-relacje", label: "Relacje" },
+      { href: "/psycholog-online-samoocena", label: "Samoocena" },
+    ],
+  },
+  {
+    slug: "psycholog-po-polsku-za-granica",
+    metaTitle: "Psycholog po polsku za granicą online",
+    metaDescription:
+      "Konsultacja psychologiczna online po polsku dla osób mieszkających za granicą, które chcą rozmawiać w ojczystym języku.",
+    eyebrow: "Polacy za granicą",
+    title: "Psycholog po polsku za granicą, online i bez dojazdu",
+    lead: [
+      "Życie za granicą może oznaczać zmianę języka, rytmu, relacji i systemu wsparcia. W trudniejszych momentach rozmowa po polsku bywa po prostu bardziej precyzyjna.",
+      "Konsultacja online pozwala rozmawiać z psychologiem po polsku niezależnie od miejsca pobytu, z uwzględnieniem dostępnych terminów i strefy Europe/Warsaw.",
+    ],
+    quickFacts: ["po polsku", "online", "za granicą", "bez dojazdu"],
+    sections: [
+      {
+        title: "Z czym często zgłaszają się osoby za granicą",
+        body: [
+          "Tematem konsultacji może być samotność, przeciążenie adaptacją, relacje na odległość, praca, tęsknota, poczucie zawieszenia albo trudność w proszeniu o pomoc w obcym systemie.",
+        ],
+      },
+      {
+        title: "Dlaczego język ma znaczenie",
+        body: [
+          "O emocjach, niuansach relacji i własnej historii często łatwiej mówić w języku, w którym powstawały najważniejsze doświadczenia.",
+        ],
+      },
+      {
+        title: "Jak zarezerwować spotkanie",
+        body: [
+          "Wybierasz termin online, opłacasz konsultację i otrzymujesz potwierdzenie. Przy rezerwacji warto uwzględnić różnicę czasu względem Polski.",
+        ],
+      },
+    ],
+    goodFit: [
+      "mieszkasz poza Polską i chcesz rozmawiać po polsku",
+      "trudno Ci znaleźć specjalistę w obecnym kraju",
+      "zmiana kraju nasiliła napięcie lub samotność",
+      "potrzebujesz konsultacji bez organizowania dojazdu",
+    ],
+    faq: [
+      {
+        question: "Czy mogę połączyć się z innego kraju?",
+        answer:
+          "Tak. Konsultacje odbywają się online, dlatego możesz dołączyć z miejsca, w którym masz prywatność i stabilny internet.",
+      },
+      {
+        question: "W jakiej strefie czasowej są terminy?",
+        answer:
+          "Terminy są prowadzone według strefy Europe/Warsaw. Przy rezerwacji warto porównać ją ze swoją lokalną godziną.",
+      },
+      {
+        question: "Czy rozmowa po polsku ma znaczenie?",
+        answer:
+          "Dla wielu osób tak, bo pozwala precyzyjniej nazywać emocje, wspomnienia i relacje. To szczególnie ważne przy tematach osobistych.",
+      },
+    ],
+    relatedLinks: [
+      { href: "/polacy-za-granica", label: "Więcej dla Polaków za granicą" },
+      { href: "/psycholog-online-wieczorem", label: "Terminy wieczorne" },
+      { href: "/konsultacja-psychologiczna-online", label: "Konsultacja online" },
+    ],
+  },
+  {
+    slug: "czy-konsultacja-online-jest-dla-mnie",
+    metaTitle: "Czy konsultacja psychologiczna online jest dla mnie",
+    metaDescription:
+      "Sprawdź, kiedy konsultacja psychologiczna online może być dobrym pierwszym krokiem, a kiedy potrzebna jest inna forma pomocy.",
+    eyebrow: "Czy online pasuje",
+    title: "Czy konsultacja psychologiczna online jest dla mnie?",
+    lead: [
+      "Konsultacja online może być dobrym pierwszym krokiem, jeśli potrzebujesz uporządkowanej rozmowy, masz warunki do prywatnego spotkania i nie jesteś w sytuacji bezpośredniego zagrożenia.",
+      "Nie jest jednak najlepszą formą dla każdej sytuacji. Dlatego warto jasno sprawdzić, kiedy online ma sens, a kiedy potrzebna jest pilniejsza lub inna pomoc.",
+    ],
+    quickFacts: ["online", "poufność", "pierwszy krok", "granice pomocy"],
+    sections: [
+      {
+        title: "Kiedy online może być dobrym wyborem",
+        body: [
+          "Forma online sprawdza się, gdy możesz znaleźć spokojne miejsce, stabilny internet i chcesz zacząć od rozmowy o aktualnej trudności.",
+        ],
+        bullets: [
+          "mieszkasz daleko albo za granicą",
+          "trudno Ci organizować dojazdy",
+          "chcesz rozmawiać po polsku",
+          "potrzebujesz pierwszego uporządkowania sytuacji",
+        ],
+      },
+      {
+        title: "Kiedy wybrać inną pomoc",
+        body: [
+          "Jeśli istnieje bezpośrednie zagrożenie życia lub zdrowia, nasilone myśli samobójcze albo potrzeba pilnej interwencji, właściwsza jest pomoc kryzysowa, medyczna lub numer alarmowy 112.",
+        ],
+      },
+      {
+        title: "Jak się przygotować",
+        body: [
+          "Wystarczy prywatne miejsce, urządzenie z kamerą i mikrofonem, stabilny internet oraz kilka zdań o tym, co obecnie najbardziej utrudnia funkcjonowanie.",
+        ],
+      },
+    ],
+    goodFit: [
+      "chcesz sprawdzić, czy online będzie wystarczająco komfortowe",
+      "nie wiesz, czy problem nadaje się na konsultację",
+      "potrzebujesz jasnych granic i zasad przed rezerwacją",
+      "chcesz wybrać między kontaktem, przewodnikiem i rezerwacją",
+    ],
+    faq: [
+      {
+        question: "Czy kamera jest konieczna?",
+        answer:
+          "Najlepiej, gdy spotkanie odbywa się z kamerą i mikrofonem, w miejscu zapewniającym prywatność. Ograniczenia techniczne warto omówić przed konsultacją.",
+      },
+      {
+        question: "Czy konsultacja online jest poufna?",
+        answer:
+          "Tak, konsultacja odbywa się z poszanowaniem poufności i zasad etycznych, z wyjątkami dotyczącymi bezpośredniego zagrożenia życia lub zdrowia.",
+      },
+      {
+        question: "Czy mogę najpierw zadać pytanie?",
+        answer:
+          "Tak. Formularz, telefon i WhatsApp pozostają dostępne w sprawach organizacyjnych przed rezerwacją.",
+      },
+    ],
+    relatedLinks: [
+      { href: "/dobierz-sciezke", label: "Dobierz pierwszy krok" },
+      { href: "/jak-to-dziala", label: "Jak wygląda konsultacja" },
+      { href: "/rezerwacja", label: "Wybierz termin" },
+    ],
+  },
 ] satisfies AiLandingPage[];
 
 export type AiLandingPageSlug = (typeof aiLandingPages)[number]["slug"];

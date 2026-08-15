@@ -11,7 +11,9 @@ export type AnalyticsEventName =
   | "klik_email"
   | "klik_telefon"
   | "klik_whatsapp"
-  | "formularz_wyslany";
+  | "formularz_wyslany"
+  | "ankieta_sciezki_krok"
+  | "ankieta_sciezki_wynik";
 
 export type AnalyticsEventParams = Record<string, string | number | boolean | null>;
 

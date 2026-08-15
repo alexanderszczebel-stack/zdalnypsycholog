@@ -66,17 +66,58 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "HealthAndBeautyBusiness",
-  name: "zdalnypsycholog",
-  description: "Profesjonalne konsultacje psychologiczne online",
-  url: SITE_URL,
-  email: CONTACT_EMAIL,
-  telephone: PHONE_NUMBER,
-  sameAs: [WHATSAPP_URL].filter(Boolean),
-  areaServed: { "@type": "Country", name: "Poland" },
-};
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "zdalnypsycholog",
+    description: "Konsultacje psychologiczne online dla osób dorosłych",
+    url: SITE_URL,
+    email: CONTACT_EMAIL,
+    telephone: PHONE_NUMBER,
+    priceRange: "250 zł",
+    areaServed: [
+      { "@type": "Country", name: "Poland" },
+      { "@type": "Place", name: "Online" },
+    ],
+    makesOffer: {
+      "@type": "Offer",
+      price: "250",
+      priceCurrency: "PLN",
+      availability: "https://schema.org/InStock",
+      itemOffered: {
+        "@type": "Service",
+        name: "Konsultacja psychologiczna online",
+        serviceType: "Konsultacja psychologiczna online",
+        areaServed: "Online",
+      },
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Mikołaj Szczebel",
+    jobTitle: "Psycholog",
+    url: canonicalUrl("/o-mnie"),
+    email: CONTACT_EMAIL,
+    telephone: PHONE_NUMBER,
+    knowsAbout: ["psychologia", "CBT", "TSR", "konsultacje psychologiczne online"],
+    worksFor: {
+      "@type": "Organization",
+      name: "zdalnypsycholog",
+      url: SITE_URL,
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    email: CONTACT_EMAIL,
+    telephone: PHONE_NUMBER,
+    url: WHATSAPP_URL,
+    availableLanguage: ["Polish"],
+  },
+];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -101,7 +142,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="antialiased">
         <ConditionalNavbar><Navbar /></ConditionalNavbar>
-        <main className="pb-[80px] md:pb-0">{children}</main>
+        <main className="pb-[80px] lg:pb-0">{children}</main>
         <ConditionalFooter><Footer /></ConditionalFooter>
         <MetaPixel />
         <CookieBanner />

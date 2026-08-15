@@ -30,9 +30,32 @@ const pricingGroups = [
   },
 ];
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Konsultacja psychologiczna online",
+  description: "Konsultacja psychologiczna online, 50 minut, płatność podczas rezerwacji.",
+  provider: {
+    "@type": "ProfessionalService",
+    name: "zdalnypsycholog",
+    url: canonicalUrl("/"),
+  },
+  offers: {
+    "@type": "Offer",
+    price: "250",
+    priceCurrency: "PLN",
+    availability: "https://schema.org/InStock",
+    url: canonicalUrl("/rezerwacja"),
+  },
+};
+
 export default function CennikPage() {
   return (
     <main className="pt-32 md:pt-40 pb-20 bg-[#F6EFE6]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <section className="container-main">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <p className="section-label justify-center mb-4">Cennik</p>
@@ -94,6 +117,9 @@ export default function CennikPage() {
           </p>
           <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3 mt-6">
             <BookingCTA text="Wybierz termin konsultacji" className="btn-primary" />
+            <Link href="/dobierz-sciezke" className="btn-secondary">
+              Dobierz pierwszy krok
+            </Link>
             <Link href="/kontakt#formularz" className="btn-secondary">
               Mam pytanie organizacyjne
             </Link>

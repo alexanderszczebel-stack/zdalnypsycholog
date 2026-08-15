@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/o-mnie", label: "O mnie" },
   { href: "/jak-to-dziala", label: "Jak to działa" },
   { href: "/obszary-pomocy", label: "Obszary pomocy" },
+  { href: "/dobierz-sciezke", label: "Dobierz ścieżkę" },
   { href: "/cennik", label: "Cennik" },
 ];
 
@@ -44,7 +45,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1" aria-label="Główna nawigacja">
+          <nav className="hidden lg:flex items-center gap-1" aria-label="Główna nawigacja">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -61,7 +62,7 @@ export default function Navbar() {
           </nav>
 
           {/* Desktop actions */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <BookingCTA
               text="Wybierz termin konsultacji"
               className="btn-primary text-sm px-5 py-2.5"
@@ -71,7 +72,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 -mr-1 rounded-xl text-[#2D2926] hover:bg-[#E8D8C4]/40 transition-colors"
+            className="lg:hidden p-2 -mr-1 rounded-xl text-[#2D2926] hover:bg-[#E8D8C4]/40 transition-colors"
             onClick={() => setOpen(!open)}
             aria-label={open ? "Zamknij menu" : "Otwórz menu"}
             aria-expanded={open}
@@ -83,7 +84,7 @@ export default function Navbar() {
         {/* Mobile menu */}
         {open && (
           <div
-            className="md:hidden fixed inset-0 top-[68px] bg-[#FDFBF7] z-40 flex flex-col"
+            className="lg:hidden fixed inset-0 top-[68px] bg-[#FDFBF7] z-40 flex flex-col md:top-[76px]"
             aria-label="Menu mobilne"
           >
             <div className="flex-1 overflow-y-auto px-5 pt-6 pb-32">
@@ -129,7 +130,7 @@ export default function Navbar() {
 
       {/* Mobile sticky bottom CTA */}
       <div
-        className="site-mobile-sticky md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#FDFBF7]/96 backdrop-blur-md border-t border-[rgba(45,41,38,0.08)]"
+        className="site-mobile-sticky lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#FDFBF7]/96 backdrop-blur-md border-t border-[rgba(45,41,38,0.08)]"
         style={{ padding: "12px 16px", paddingBottom: "max(12px, env(safe-area-inset-bottom))" }}
       >
         <BookingCTA

@@ -28,7 +28,7 @@ const minieFaq = [
   },
   {
     q: "Czy mogę zadać pytanie przed umówieniem wizyty?",
-    a: "Tak. Możesz zadzwonić, napisać przez WhatsApp albo skorzystać z formularza kontaktowego.",
+    a: "Tak. Możesz zadzwonić, napisać przez WhatsApp, skorzystać z formularza kontaktowego albo najpierw przejść przez ankietę 'Dobierz ścieżkę'.",
   },
   {
     q: "Gdzie znajdę Politykę Prywatności?",
@@ -70,6 +70,9 @@ export default function KontaktPage() {
                   </p>
                   <div className="flex flex-col gap-3">
                     <BookingCTA text="Wybierz termin konsultacji" className="btn-primary" />
+                    <a href="/dobierz-sciezke" className="btn-secondary">
+                      Dobierz pierwszy krok
+                    </a>
                     <a href="#formularz" className="btn-secondary">
                       Mam pytanie organizacyjne
                     </a>

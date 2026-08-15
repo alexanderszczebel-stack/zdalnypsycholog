@@ -51,11 +51,44 @@ const faqs = [
     q: "Gdzie znajdę cennik?",
     a: "Aktualne ceny konsultacji znajdują się w zakładce Cennik. Tam znajdziesz też informację o pakietach konsultacji indywidualnych i konsultacji dla par.",
   },
+  {
+    q: "Czy 50 minut wystarczy na pierwszą konsultację?",
+    a: "50 minut zwykle wystarcza, żeby nazwać najważniejszy temat, zebrać kontekst i ustalić możliwy dalszy krok. Jeśli potrzebna jest kontynuacja, jest to omawiane po pierwszym spotkaniu.",
+  },
+  {
+    q: "Czy płatność online jest bezpieczna?",
+    a: "Płatność odbywa się online przez Stripe podczas rezerwacji. Termin zostaje potwierdzony po skutecznej płatności.",
+  },
+  {
+    q: "Czy po płatności dostanę informacje o spotkaniu?",
+    a: "Tak. Po rezerwacji i płatności otrzymasz potwierdzenie oraz informacje organizacyjne na podany adres e-mail.",
+  },
+  {
+    q: "Czy mogę zadać pytanie, jeśli nie wiem, czy konsultacja jest dla mnie?",
+    a: "Tak. Możesz skorzystać z ankiety 'Dobierz ścieżkę', formularza kontaktowego, telefonu albo WhatsApp w sprawach organizacyjnych.",
+  },
 ];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
 
 export default function FAQPage() {
   return (
     <main className="bg-[#F6EFE6] pb-20 pt-32 md:pt-40">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <div className="container-main max-w-4xl">
         <p className="section-label mb-4">FAQ</p>
         <h1 className="font-display text-4xl font-semibold text-[#1F314D] md:text-5xl">

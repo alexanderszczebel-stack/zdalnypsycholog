@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AlertTriangle, ArrowRight, CheckCircle2, HelpCircle, MessageCircle, ShieldCheck } from "lucide-react";
+import { AlertTriangle, ArrowRight, CheckCircle2, Compass, HelpCircle, MessageCircle, ShieldCheck } from "lucide-react";
 import BookingCTA from "@/components/booking/BookingCTA";
 import PhoneCTA, { PhoneTextLink, WhatsAppCTA } from "@/components/ui/PhoneCTA";
 import type { AiLandingPage } from "@/data/aiLandingPages";
@@ -99,8 +99,9 @@ export default function AiIntentPage({ page }: AiIntentPageProps) {
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <BookingCTA text="Wybierz termin konsultacji" className="btn-primary w-full sm:w-auto" />
-              <Link href="/kontakt#formularz" className="btn-secondary w-full sm:w-auto">
-                Zadaj pytanie
+              <Link href="/dobierz-sciezke" className="btn-secondary w-full sm:w-auto">
+                <Compass size={17} strokeWidth={1.9} aria-hidden="true" />
+                Dobierz pierwszy krok
               </Link>
             </div>
           </div>
@@ -122,9 +123,27 @@ export default function AiIntentPage({ page }: AiIntentPageProps) {
               Możesz umówić termin online albo najpierw skontaktować się telefonicznie. Telefon:{" "}
               <PhoneTextLink className="font-semibold text-[#1F314D] hover:text-[#BC6C25]" />.
             </p>
+            <div className="mt-5 grid grid-cols-2 gap-3">
+              {[
+                { label: "czas", value: "50 minut" },
+                { label: "cena", value: "250 zł" },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-2xl px-4 py-3"
+                  style={{ background: "#F6EFE6", border: "1px solid rgba(45,41,38,0.06)" }}
+                >
+                  <p className="text-xs font-semibold uppercase text-[#9A8E85]">{item.label}</p>
+                  <p className="mt-1 text-sm font-semibold text-[#1F314D]">{item.value}</p>
+                </div>
+              ))}
+            </div>
             <div className="mt-6 grid gap-3">
               <PhoneCTA text="Zadzwoń" className="btn-primary w-full" />
               <WhatsAppCTA text="Napisz na WhatsApp" className="btn-secondary w-full" />
+              <Link href="/kontakt#formularz" className="btn-secondary w-full">
+                Formularz kontaktowy
+              </Link>
             </div>
           </aside>
         </div>

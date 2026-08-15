@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   Clock3,
   CloudRain,
+  Compass,
   CreditCard,
   HelpCircle,
   Layers,
@@ -47,37 +48,37 @@ const identificationItems: CardItem[] = [
     Icon: Wind,
     title: "Lęk i napięcie",
     text: "Gdy trudno zatrzymać analizowanie, a ciało pozostaje w gotowości.",
-    href: "/blog/lek-i-niepokoj",
+    href: "/psycholog-online-lek-i-napiecie",
   },
   {
     Icon: Activity,
     title: "Stres i przeciążenie",
     text: "Gdy obowiązki przekraczają dostępne zasoby i coraz trudniej się regenerować.",
-    href: "/blog/stres-i-przeciazenie",
+    href: "/psycholog-online-stres-i-przeciazenie",
   },
   {
     Icon: Users,
     title: "Relacje",
     text: "Gdy powtarzające się schematy utrudniają rozmowę, bliskość lub stawianie granic.",
-    href: "/blog/relacje",
+    href: "/psycholog-online-relacje",
   },
   {
     Icon: CloudRain,
     title: "Obniżony nastrój",
     text: "Gdy spadek energii, motywacji lub sensu utrzymuje się dłużej niż zwykle.",
-    href: "/blog/obnizony-nastroj",
+    href: "/psycholog-online-obnizony-nastroj",
   },
   {
     Icon: Brain,
     title: "ADHD i koncentracja",
     text: "Gdy potrzebujesz uporządkować trudności z uwagą, planowaniem lub impulsywnością.",
-    href: "/blog/adhd-u-doroslych",
+    href: "/psycholog-online-adhd-koncentracja",
   },
   {
     Icon: HelpCircle,
     title: "Trudno to nazwać",
     text: "Gdy nie masz gotowej diagnozy, ale czujesz, że warto uporządkować sytuację.",
-    href: "/obszary-pomocy",
+    href: "/dobierz-sciezke",
   },
 ];
 
@@ -131,6 +132,57 @@ const trustItems = [
   "Konsultacje prowadzone indywidualnie, po wyborze terminu i dokonaniu płatności online.",
   "Podejście oparte na uporządkowanej rozmowie, zrozumieniu mechanizmów i konkretnych krokach.",
   "Liczba dostępnych terminów w tygodniu jest ograniczona.",
+];
+
+const entryPaths = [
+  {
+    Icon: Compass,
+    title: "Nie wiem, od czego zacząć",
+    text: "Krótka ankieta bez diagnozowania prowadzi do najbliższej strony, kontaktu albo rezerwacji.",
+    href: "/dobierz-sciezke",
+    cta: "Dobierz pierwszy krok",
+  },
+  {
+    Icon: BookOpen,
+    title: "Chcę najpierw poczytać",
+    text: "Strony tematyczne pomagają nazwać problem i sprawdzić, czy konsultacja online ma sens.",
+    href: "/obszary-pomocy",
+    cta: "Zobacz obszary pomocy",
+  },
+  {
+    Icon: CalendarDays,
+    title: "Chcę od razu termin",
+    text: "Przechodzisz do wyboru dostępnej godziny, płatności i potwierdzenia konsultacji.",
+    href: "/rezerwacja",
+    cta: "Wybierz termin",
+  },
+];
+
+const supportComparison = [
+  {
+    Icon: MessageCircle,
+    title: "Konsultacja psychologiczna",
+    text: "Pierwsza rozmowa online, gdy chcesz nazwać trudność, kontekst i możliwy dalszy krok.",
+    href: "/konsultacja-psychologiczna-online",
+  },
+  {
+    Icon: Layers,
+    title: "Psychoterapia długoterminowa",
+    text: "Regularna praca nad głębszymi schematami. Zakres i częstotliwość ustala się indywidualnie.",
+    href: "/pierwsza-konsultacja-psychologiczna-online",
+  },
+  {
+    Icon: Brain,
+    title: "Konsultacja psychiatryczna",
+    text: "Warto ją rozważyć przy potrzebie diagnozy medycznej, leków albo silnych objawach.",
+    href: "/czy-konsultacja-online-jest-dla-mnie",
+  },
+  {
+    Icon: ShieldCheck,
+    title: "Pomoc kryzysowa",
+    text: "Przy bezpośrednim zagrożeniu życia lub zdrowia właściwy jest numer 112 albo lokalna pomoc pilna.",
+    href: "/bezpieczenstwo-i-prywatnosc",
+  },
 ];
 
 const blogPosts = [
@@ -291,8 +343,8 @@ export default function HomePage() {
                 text="Wybierz termin konsultacji"
                 className="btn-primary w-full sm:w-auto"
               />
-              <Link href="#jak-to-dziala" className="btn-secondary w-full sm:w-auto">
-                Zobacz, jak to działa
+              <Link href="/dobierz-sciezke" className="btn-secondary w-full sm:w-auto">
+                Dobierz pierwszy krok
               </Link>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-[#6F6860]">
@@ -301,6 +353,41 @@ export default function HomePage() {
           </div>
 
           <HeroVisual />
+        </div>
+      </section>
+
+      <section className="bg-[#FDFBF7] px-5 py-16 md:py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+            <SectionIntro
+              eyebrow="Pierwszy krok"
+              title="Nie każda osoba jest gotowa od razu przejść do płatności."
+              text="Dlatego możesz wybrać wejście, które pasuje do aktualnego poziomu gotowości: ankietę, przewodnik tematyczny albo bezpośrednią rezerwację."
+            />
+
+            <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-1">
+              {entryPaths.map(({ Icon, title, text, href, cta }) => (
+                <Link key={href} href={href} className="group block h-full">
+                  <article
+                    className="flex h-full gap-4 rounded-2xl bg-white p-5 transition duration-300 group-hover:-translate-y-1"
+                    style={{ border: "1px solid rgba(45,41,38,0.08)", boxShadow: "0 10px 28px rgba(31,49,77,0.04)" }}
+                  >
+                    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-2xl bg-[#F6EFE6] text-[#BC6C25]">
+                      <Icon size={21} strokeWidth={1.8} aria-hidden="true" />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-lg font-semibold text-[#1F314D]">{title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-[#6F6860]">{text}</p>
+                      <span className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#BC6C25]">
+                        {cta}
+                        <ArrowRight size={15} strokeWidth={1.8} aria-hidden="true" />
+                      </span>
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -336,6 +423,12 @@ export default function HomePage() {
                   </article>
                 </Link>
               ))}
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:justify-end">
+              <Link href="/dobierz-sciezke" className="btn-secondary w-full sm:w-auto">
+                Nie wiem, od czego zacząć
+              </Link>
             </div>
           </div>
         </div>
@@ -408,6 +501,40 @@ export default function HomePage() {
                 <h3 className="font-display text-lg font-semibold text-[#1F314D]">{title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-[#6F6860]">{text}</p>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#FDFBF7] px-5 py-16 md:py-24">
+        <div className="mx-auto max-w-6xl">
+          <SectionIntro
+            eyebrow="Jaki rodzaj pomocy"
+            title="Konsultacja online jest jednym z możliwych pierwszych kroków."
+            text="Jasne rozróżnienie form pomocy zmniejsza niepewność i pomaga wybrać bezpieczny, adekwatny kierunek."
+            align="center"
+          />
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {supportComparison.map(({ Icon, title, text, href }) => (
+              <Link key={title} href={href} className="group block h-full">
+                <article
+                  className="flex h-full flex-col rounded-2xl bg-white p-6 transition duration-300 group-hover:-translate-y-1"
+                  style={{ border: "1px solid rgba(45,41,38,0.08)", boxShadow: "0 12px 30px rgba(31,49,77,0.04)" }}
+                >
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#F6EFE6] text-[#BC6C25]">
+                    <Icon size={21} strokeWidth={1.8} aria-hidden="true" />
+                  </div>
+                  <h3 className="font-display text-lg font-semibold leading-snug text-[#1F314D]">
+                    {title}
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-[#6F6860]">{text}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#BC6C25]">
+                    Czytaj więcej
+                    <ArrowRight size={15} strokeWidth={1.8} aria-hidden="true" />
+                  </span>
+                </article>
+              </Link>
             ))}
           </div>
         </div>

@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: canonicalUrl("/o-mnie"), lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: canonicalUrl("/jak-to-dziala"), lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: canonicalUrl("/obszary-pomocy"), lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: canonicalUrl("/dobierz-sciezke"), lastModified: new Date(), changeFrequency: "monthly", priority: 0.85 },
     { url: canonicalUrl("/cennik"), lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: canonicalUrl("/blog"), lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: canonicalUrl("/kontakt"), lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
